@@ -13,10 +13,11 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Made of everything awesome
+title: made of everything awesome
+author: moea
 # email: your-email@example.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A hypothetical collection of mathematical, programmatical and quizzical curiosities.
+  A hypothetical collection of quizzical curiosities.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  imoea

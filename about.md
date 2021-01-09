@@ -1,7 +1,7 @@
 ---
 layout: page
-title: README.md
+title: about
 permalink: /about
 ---
 
-I am Moea.
+I am moea.

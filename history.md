@@ -1,6 +1,6 @@
 ---
 layout: page
-title: .history
+title: archive
 permalink: /archive
 ---
 
