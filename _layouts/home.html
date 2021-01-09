@@ -3,18 +3,21 @@ layout: default
 ---
 
 <div class="home">
-  {%- if page.title -%}
-  <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
 
   {{ content }}
 
   {%- if site.posts.size > 0 -%}
+  <h2 class="post-list-heading">
+    {{ page.list_title | default: "recent entries" }}
+    <span style="float:right;">[<a href="/all/">view all</a>]</span>
+  </h2>
   <ul class="post-list">
-    {%- for post in site.posts -%}
+    {%- for post in site.posts limit: 7 -%}
     <li>
-      {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-      <span class="post-meta">{{ post.date | date: date_format }}</span>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      {%- for category in post.categories -%}
+      <span class="post-meta">&nbsp;• {{ category }}</span>
+      {%- endfor -%}
       <h3>
         <a class="post-link" href="{{ post.url | relative_url }}">
           {{ post.title | escape }}
@@ -22,6 +25,7 @@ layout: default
       </h3>
       {%- if site.show_excerpts -%}
       {{ post.excerpt }}
+      <!--[<a href="{{ post.url | relative_url }}">Read more</a>]-->
       {%- endif -%}
     </li>
     {%- endfor -%}

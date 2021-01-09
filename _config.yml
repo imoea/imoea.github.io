@@ -24,10 +24,6 @@ github_username:  imoea
 tumblr_username: imoea
 rss: rss
 
-# minima date format
-minima:
-  date_format: "%b %-d, %Y"
-
 # Build settings
 markdown: kramdown
 theme: minima
@@ -36,7 +32,7 @@ plugins:
   - jekyll-paginate
 
 paginate: 10
-paginate_path: /log/page:num/
+paginate_path: /all/page:num/
 show_excerpts: true # set to true to show excerpts on the homepage
 
 # Exclude from processing.
