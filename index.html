@@ -1,0 +1,35 @@
+---
+layout: default
+---
+
+<div class="home">
+
+  {{ content }}
+
+  {%- if site.posts.size > 0 -%}
+  <h2 class="post-list-heading">
+    {{ page.list_title | default: "Recent Entries" }}
+    <span style="float:right;">[<a href="/log/">View all</a>]</span>
+  </h2>
+  <ul class="post-list">
+    {%- for post in site.posts limit: 7 -%}
+    <li>
+      <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
+      {%- for category in post.categories -%}
+      <span class="post-meta">&nbsp;• {{ category }}</span>
+      {%- endfor -%}
+      <h3>
+        <a class="post-link" href="{{ post.url | relative_url }}">
+          {{ post.title | escape }}
+        </a>
+      </h3>
+      {%- if site.show_excerpts -%}
+      {{ post.excerpt }}
+      <!--[<a href="{{ post.url | relative_url }}">Read more</a>]-->
+      {%- endif -%}
+    </li>
+    {%- endfor -%}
+  </ul>
+  {%- endif -%}
+
+</div>
