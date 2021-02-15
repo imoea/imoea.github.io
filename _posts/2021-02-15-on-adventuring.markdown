@@ -1,14 +1,14 @@
 ---
 layout: post
 title:  "On Adventuring"
-date:   2021-02-15 13:18:42 +0800
+date:   2021-02-15 13:18:00 +0800
 categories: quote
 ---
 *An excerpt from [Tales of Maj'Eyal][tome]:*
 
 > ### **Lore: On Adventuring**
 >
-> I must say, as time grows, I feel so do I grow more and more inclined to distance myself from the calling of an 'adventurer', like so many you can find roaming the countryside. I feel like the myth of a wandering hero has blinded too many with promise of easy fame and riches, with no eye for the other kind of fortume.
+> I must say, as time grows, I feel so do I grow more and more inclined to distance myself from the calling of an 'adventurer', like so many you can find roaming the countryside. I feel like the myth of a wandering hero has blinded too many with promise of easy fame and riches, with no eye for the other kind of fortune.
 >
 > Hear me out on this.
 >
