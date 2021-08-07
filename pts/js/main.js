@@ -31,3 +31,5 @@ space.add({
 });
 
 space.bindMouse().play();
+
+export { space };

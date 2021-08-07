@@ -2,6 +2,7 @@
  * This script handles player inputs.
  */
 
+import { space } from './main.js';
 import { weapons } from './template.js';
 
 const input = {
