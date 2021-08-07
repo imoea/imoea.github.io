@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Point to shoot</title>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="../pts/pts.min.js"></script>
+    <style>
+        canvas {
+            cursor: crosshair;
+            width: 800px;
+            height: 600px;
+        }
+
+        body {
+            background-color: black;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body oncontextmenu="return false;">
+    <canvas id="pts"></canvas>
+    <script>
+        Pts.namespace(window);
+    </script>
+    <script src="../pts/weapon.js"></script>
+    <script src="../pts/entity.js"></script>
+    <script src="../pts/template.js"></script>
+    <script src="../pts/input.js"></script>
+    <script src="../pts/main.js"></script>
+</body>
+
+</html>
