@@ -6,29 +6,42 @@
     <meta charset="utf-8">
     <script type="text/javascript" src="../pts/pts.min.js"></script>
     <style>
+        body {
+            text-align: center;
+        }
+
         canvas {
             cursor: crosshair;
             width: 800px;
             height: 600px;
+            outline: 1px solid black;
         }
 
-        body {
-            background-color: black;
-            text-align: center;
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: "Lucida Console", "Courier New", monospace;
+            font-size: small;
         }
     </style>
 </head>
 
 <body oncontextmenu="return false;">
-    <canvas id="pts"></canvas>
-    <script>
-        Pts.namespace(window);
-    </script>
-    <script src="../pts/weapon.js"></script>
-    <script src="../pts/entity.js"></script>
-    <script src="../pts/template.js"></script>
-    <script src="../pts/input.js"></script>
-    <script src="../pts/main.js"></script>
+    <div class="center">
+        <canvas id="pts"></canvas>
+        <script>
+            Pts.namespace(window);
+        </script>
+        <script src="../pts/weapon.js"></script>
+        <script src="../pts/entity.js"></script>
+        <script src="../pts/template.js"></script>
+        <script src="../pts/input.js"></script>
+        <script src="../pts/main.js"></script>
+
+        Move [WASD] | Shoot [LMB] | Weapons [#] | Pause [Esc] | Restart [Ctrl+R]
+    </div>
 </body>
 
 </html>
