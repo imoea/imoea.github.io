@@ -4,9 +4,6 @@
 import { Player } from './entity/player.js';
 import { input } from './input.js';
 
-const space = new CanvasSpace('pts').setup({ bgcolor: '#fff', offscreen: true });
-const form = space.getForm();
-
 let player;
 
 space.add({
@@ -31,5 +28,3 @@ space.add({
 });
 
 space.bindMouse().play();
-
-export { space };
