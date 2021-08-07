@@ -1,8 +1,8 @@
-/*
-This script implements the main loop.
-*/
-
-'use strict';
+/**
+ * This script implements the main loop.
+ */
+import { Player } from './entity/player.js';
+import { input } from './input.js';
 
 const space = new CanvasSpace('pts').setup({ bgcolor: '#fff', offscreen: true });
 const form = space.getForm();
@@ -12,7 +12,6 @@ let player;
 space.add({
     start: (bound) => {
         player = new Player(space.center);
-        // player.weapon = weapons.assault_rifle;
         form.useOffscreen()
             .fillOnly('#fff')
             .rect(space.innerBound)
@@ -20,11 +19,11 @@ space.add({
     },
 
     animate: (time, ftime) => {
-        if (!paused) {
-            player.update(time, ftime);
+        if (!input.paused) {
+            player.update(space, time, ftime);
 
             form.renderOffscreen();
-            player.render();
+            player.render(form);
         }
     },
 

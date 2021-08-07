@@ -1,8 +1,6 @@
-/*
-This script implements weapons.
-*/
-
-'use strict';
+/**
+ * This script implements weapons.
+ */
 
 class Bullet {
     constructor(source, velocity) {
@@ -11,7 +9,7 @@ class Bullet {
          * @param {Pt} source bullet source
          * @param {Pt} velocity bullet velocity
          * @return {Bullet}
-         **/
+         */
         this.color = '#f00';
         this.shape = 'circle';
         this.size = 1;
@@ -23,7 +21,7 @@ class Bullet {
         this.trail.moveBy(this.velocity.x, this.velocity.y);
     }
 
-    render() {
+    render(form) {
         form.stroke('#00f').line(this.trail);
         form.fillOnly(this.color).point(this.trail.p1, this.size, this.shape);
     }
@@ -39,7 +37,7 @@ class Weapon {
          * @param {Number} shots shots per round
          * @param {Number} speed bullet speed
          * @return {Weapon}
-         **/
+         */
         this.cooldown = 1000 / rps;  // cooldown between rounds
         this.damage = damage;
         this.last_fired = 0;  // time weapon was last fired
@@ -49,21 +47,21 @@ class Weapon {
         this.spread = 0.5 * (1 - accuracy);  // bullet spread
     }
 
-    fire(player, time, ftime) {
+    fire(owner, target, time, ftime) {
         if (time > this.last_fired + this.rate) {
             this.cooldown = this.rate;
         }
         this.cooldown += ftime;
         if (this.cooldown > this.rate) {
             let velocity =
-                space.pointer.$subtract(player).unit().$multiply(this.speed);
+                target.$subtract(owner).unit().$multiply(this.speed);
             for (let i = 0; i < this.shots; i++) {
                 let shot_velocity = velocity.clone();
                 if (this.spread > 0) {
                     shot_velocity
                         .rotate2D(Num.randomRange(-this.spread, this.spread));
                 }
-                player.bullets.push(new Bullet(player, shot_velocity));
+                owner.bullets.push(new Bullet(owner, shot_velocity));
             }
             this.cooldown = Num.boundValue(this.cooldown, 0, this.rate);
             this.last_fired = time;
@@ -71,3 +69,5 @@ class Weapon {
 
     }
 }
+
+export { Weapon };

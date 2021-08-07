@@ -1,8 +1,9 @@
-/*
-This script defines all the entities.
-*/
+/**
+ * This script defines all the entities.
+ */
 
-'use strict';
+import { input } from '../input.js';
+import { weapons } from '../template.js';
 
 class Player extends Pt {
     constructor(loc, color = '#000', shape = 'square', size = 5, speed = 5) {
@@ -14,17 +15,25 @@ class Player extends Pt {
          * @param {Number} size size
          * @param {Number} speed movement speed
          * @return {Player}
-         **/
+         */
+
         super(loc);
         this.color = color;
         this.shape = shape;
         this.size = size;
         this.speed = speed;
-        this.weapon = weapons.pistol;
+        this.weapon = 0;
         this.bullets = [];
     }
 
-    update(time, ftime) {
+    update(space, time, ftime) {
+        /**
+         * Player constructor.
+         * @param {Number} time milliseconds since the start
+         * @param {Number} ftime milliseconds since the previous render
+         */
+
+        // update movement
         let d = new Pt();
         if (input.key[87]) d.y -= 1;  // W
         if (input.key[65]) d.x -= 1;  // A
@@ -36,10 +45,18 @@ class Player extends Pt {
             this.y = Num.clamp(this.y, this.size, space.size.y - this.size);
         }
 
+        // update firing
         if (input.mouse[0]) {
-            this.weapon.fire(this, time, ftime);
+            weapons[this.weapon].fire(this, space.pointer, time, ftime);
         }
 
+        // update weapon swap
+        if (-1 < input.weaponSwap && input.weaponSwap < weapons.length) {
+            this.weapon = input.weaponSwap;
+            input.weaponSwap = -1;
+        }
+
+        // update bullets
         this.bullets.forEach(bullet => bullet.update());
         while (this.bullets.length > 0 &&
             (!Num.within(this.bullets[0].trail.q1.x, 0, space.size.x) ||
@@ -48,8 +65,10 @@ class Player extends Pt {
         }
     }
 
-    render() {
+    render(form) {
         form.fillOnly(this.color).point(this, this.size, this.shape);
-        this.bullets.forEach(bullet => bullet.render());
+        this.bullets.forEach(bullet => bullet.render(form));
     }
 }
+
+export { Player };
