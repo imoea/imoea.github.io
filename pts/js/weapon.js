@@ -9,7 +9,8 @@ class Bullet {
          * @param {Pt} source bullet source
          * @param {Pt} velocity bullet velocity
          * @return {Bullet}
-         */
+        */
+
         this.color = '#f00';
         this.shape = 'circle';
         this.size = 1;
@@ -37,10 +38,11 @@ class Weapon {
          * @param {Number} shots shots per round
          * @param {Number} speed bullet speed
          * @return {Weapon}
-         */
+        */
+
         this.cooldown = 1000 / rps;  // cooldown between rounds
         this.damage = damage;
-        this.last_fired = 0;  // time weapon was last fired
+        this.lastFired = 0;  // time weapon was last fired
         this.rate = 1000 / rps;  // rate of fire
         this.shots = shots;
         this.speed = speed;
@@ -48,7 +50,15 @@ class Weapon {
     }
 
     fire(owner, target, time, ftime) {
-        if (time > this.last_fired + this.rate) {
+        /**
+         * Fire the weapon.
+         * @param {Player} owner owner of the weapon
+         * @param {Pt} target target of the shot
+         * @param {Number} time
+         * @param {Number} ftime
+        */
+
+        if (time > this.lastFired + this.rate) {
             this.cooldown = this.rate;
         }
         this.cooldown += ftime;
@@ -56,15 +66,15 @@ class Weapon {
             let velocity =
                 target.$subtract(owner).unit().$multiply(this.speed);
             for (let i = 0; i < this.shots; i++) {
-                let shot_velocity = velocity.clone();
+                let shotVelocity = velocity.clone();
                 if (this.spread > 0) {
-                    shot_velocity
+                    shotVelocity
                         .rotate2D(Num.randomRange(-this.spread, this.spread));
                 }
-                owner.bullets.push(new Bullet(owner, shot_velocity));
+                owner.bullets.push(new Bullet(owner, shotVelocity));
             }
             this.cooldown = Num.boundValue(this.cooldown, 0, this.rate);
-            this.last_fired = time;
+            this.lastFired = time;
         }
 
     }

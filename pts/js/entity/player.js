@@ -2,8 +2,8 @@
  * This script defines all the entities.
  */
 
-import { input } from '../input.js';
-import { weapons } from '../template.js';
+import { space } from '../main.js';
+import { ais } from '../template.js';
 
 class Player extends Pt {
     constructor(loc, color = '#000', shape = 'square', size = 5, speed = 5) {
@@ -15,9 +15,10 @@ class Player extends Pt {
          * @param {Number} size size
          * @param {Number} speed movement speed
          * @return {Player}
-         */
+        */
 
         super(loc);
+        this.ai = ais.player;
         this.color = color;
         this.shape = shape;
         this.size = size;
@@ -26,35 +27,24 @@ class Player extends Pt {
         this.bullets = [];
     }
 
-    update(space, time, ftime) {
+    hitBox() {
         /**
-         * Player constructor.
-         * @param {Number} time milliseconds since the start
-         * @param {Number} ftime milliseconds since the previous render
-         */
+         * Hit box.
+         * @return {Group} represents a hit box
+        */
 
-        // update movement
-        let d = new Pt();
-        if (input.key[87]) d.y -= 1;  // W
-        if (input.key[65]) d.x -= 1;  // A
-        if (input.key[83]) d.y += 1;  // S
-        if (input.key[68]) d.x += 1;  // D
-        if (d.x != 0 || d.y != 0) {
-            this.add(d.unit().$multiply(this.speed));
-            this.x = Num.clamp(this.x, this.size, space.size.x - this.size);
-            this.y = Num.clamp(this.y, this.size, space.size.y - this.size);
-        }
+        return Rectangle.fromCenter(this, 2 * this.size);
+    }
 
-        // update firing
-        if (input.mouse[0]) {
-            weapons[this.weapon].fire(this, space.pointer, time, ftime);
-        }
+    update(time, ftime) {
+        /**
+         * Update the player.
+         * @param {Number} time
+         * @param {Number} ftime
+        */
 
-        // update weapon swap
-        if (-1 < input.weaponSwap && input.weaponSwap < weapons.length) {
-            this.weapon = input.weaponSwap;
-            input.weaponSwap = -1;
-        }
+        // update player actions
+        this.ai.update(this, time, ftime);
 
         // update bullets
         this.bullets.forEach(bullet => bullet.update());
@@ -66,6 +56,11 @@ class Player extends Pt {
     }
 
     render(form) {
+        /**
+         * Render the player.
+         * @param {Form} form
+        */
+
         form.fillOnly(this.color).point(this, this.size, this.shape);
         this.bullets.forEach(bullet => bullet.render(form));
     }

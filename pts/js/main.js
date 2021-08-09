@@ -19,9 +19,12 @@ space.add({
     },
 
     animate: (time, ftime) => {
+        // main game loop
         if (!input.paused) {
-            player.update(space, time, ftime);
+            // update
+            player.update(time, ftime);
 
+            // render
             form.renderOffscreen();
             player.render(form);
         }
