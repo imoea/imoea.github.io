@@ -2,9 +2,9 @@
  * This script controls AIs.
  */
 
-import { input } from '../input.js';
-import { space } from '../main.js';
-import { weapons } from '../template.js';
+import { weapons } from "../entity/template.js";
+import { input } from "../input.js";
+import { space } from "../main.js";
 
 class PlayerAI {
     constructor() { }
@@ -25,8 +25,6 @@ class PlayerAI {
         if (input.key[68]) d.x += 1;  // D
         if (d.x != 0 || d.y != 0) {
             owner.add(d.unit().$multiply(owner.speed * ftime));
-            owner.x = Num.clamp(owner.x, owner.size, space.size.x - owner.size);
-            owner.y = Num.clamp(owner.y, owner.size, space.size.y - owner.size);
         }
 
         // update firing
@@ -35,7 +33,7 @@ class PlayerAI {
         }
 
         // update weapon swap
-        if (-1 < input.weaponSwap && input.weaponSwap < weapons.length) {
+        if (-1 < input.weaponSwap && input.weaponSwap < weapons.length - 1) {
             owner.weapon = input.weaponSwap;
             input.weaponSwap = -1;
         }

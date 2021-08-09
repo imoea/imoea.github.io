@@ -1,52 +1,30 @@
 /**
- * This script implements weapons.
+ * This script implements the Weapon class.
  */
 
-class Bullet {
-    constructor(source, velocity) {
-        /**
-         * Bullet constructor.
-         * @param {Pt} source bullet source
-         * @param {Pt} velocity bullet velocity
-         * @return {Bullet}
-        */
-
-        this.color = '#f00';
-        this.shape = 'circle';
-        this.size = 1;
-        this.trail = new Group(source.clone(), source.$subtract(velocity));
-        this.velocity = velocity.$multiply(0.06);
-    }
-
-    update(time, ftime) {
-        this.trail.add(this.velocity.$multiply(ftime));
-    }
-
-    render(form) {
-        form.stroke('#00f').line(this.trail);
-        form.fillOnly(this.color).point(this.trail.p1, this.size, this.shape);
-    }
-}
+import { Bullet } from "./bullet.js";
 
 class Weapon {
-    constructor(accuracy, damage, rps, shots, speed) {
+    constructor(accuracy, damage, knockback, rps, shots, speed) {
         /**
          * Weapon constructor.
          * @param {Number} accuracy weapon accuracy, between 0 and 1
          * @param {Number} damage weapon damage
+         * @param {Number} knockback knockback per round
          * @param {Number} rps rounds per second
          * @param {Number} shots shots per round
          * @param {Number} speed bullet speed
          * @return {Weapon}
         */
 
-        this.cooldown = 1000 / rps;  // cooldown between rounds
+        this.cooldown = 1000 / rps;                 // cooldown between rounds
         this.damage = damage;
-        this.lastFired = 0;  // time weapon was last fired
-        this.rate = 1000 / rps;  // rate of fire
+        this.knockback = 0.06 * knockback / shots;  // spread across shots
+        this.lastFired = 0;                         // last fired time
+        this.rate = 1000 / rps;                     // rate of fire
         this.shots = shots;
         this.speed = speed;
-        this.spread = 0.5 * (1 - accuracy);  // bullet spread
+        this.spread = 0.5 * (1 - accuracy);         // bullet spread
     }
 
     fire(owner, target, time, ftime) {

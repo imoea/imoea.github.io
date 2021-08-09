@@ -2,8 +2,8 @@
  * This script handles player inputs.
  */
 
-import { space } from './main.js';
-import { weapons } from './template.js';
+import { space } from "./main.js";
+import { weapons } from "./entity/template.js";
 
 const input = {
     key: {
@@ -13,11 +13,12 @@ const input = {
         87: false   // W
     },
     mouse: {
-        0: false,  // LMB
-        1: false,  // MMB
-        2: false   // RMB
+        0: false,   // LMB
+        1: false,   // MMB
+        2: false    // RMB
     },
-    paused: false,
+    pause: false,   // Esc
+    resume: false,
     weaponSwap: -1
 }
 
@@ -25,9 +26,12 @@ window.onkeydown = function (e) {
     input.key[e.keyCode] = true;
 
     if (e.keyCode === 27) { // ESC to pause
-        input.paused = !input.paused;
-        if (input.paused) space.pause();
-        else space.resume();
+        input.pause = !input.pause;
+        if (input.pause) space.pause();
+        else {
+            input.resume = true;
+            space.resume();
+        }
     }
 };
 
