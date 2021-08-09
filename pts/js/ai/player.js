@@ -24,7 +24,7 @@ class PlayerAI {
         if (input.key[83]) d.y += 1;  // S
         if (input.key[68]) d.x += 1;  // D
         if (d.x != 0 || d.y != 0) {
-            owner.add(d.unit().$multiply(owner.speed));
+            owner.add(d.unit().$multiply(owner.speed * ftime));
             owner.x = Num.clamp(owner.x, owner.size, space.size.x - owner.size);
             owner.y = Num.clamp(owner.y, owner.size, space.size.y - owner.size);
         }

@@ -15,11 +15,11 @@ class Bullet {
         this.shape = 'circle';
         this.size = 1;
         this.trail = new Group(source.clone(), source.$subtract(velocity));
-        this.velocity = velocity;
+        this.velocity = velocity.$multiply(0.06);
     }
 
-    update() {
-        this.trail.moveBy(this.velocity.x, this.velocity.y);
+    update(time, ftime) {
+        this.trail.add(this.velocity.$multiply(ftime));
     }
 
     render(form) {
@@ -54,8 +54,8 @@ class Weapon {
          * Fire the weapon.
          * @param {Player} owner owner of the weapon
          * @param {Pt} target target of the shot
-         * @param {Number} time
-         * @param {Number} ftime
+         * @param {Number} time in milliseconds
+         * @param {Number} ftime in milliseconds
         */
 
         if (time > this.lastFired + this.rate) {

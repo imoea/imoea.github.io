@@ -22,7 +22,7 @@ class Player extends Pt {
         this.color = color;
         this.shape = shape;
         this.size = size;
-        this.speed = speed;
+        this.speed = speed * 0.06;
         this.weapon = 0;
         this.bullets = [];
     }
@@ -39,15 +39,15 @@ class Player extends Pt {
     update(time, ftime) {
         /**
          * Update the player.
-         * @param {Number} time
-         * @param {Number} ftime
+         * @param {Number} time in milliseconds
+         * @param {Number} ftime in milliseconds
         */
 
         // update player actions
         this.ai.update(this, time, ftime);
 
         // update bullets
-        this.bullets.forEach(bullet => bullet.update());
+        this.bullets.forEach(bullet => bullet.update(time, ftime));
         while (this.bullets.length > 0 &&
             (!Num.within(this.bullets[0].trail.q1.x, 0, space.size.x) ||
                 !Num.within(this.bullets[0].trail.q1.y, 0, space.size.y))) {
