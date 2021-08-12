@@ -7,17 +7,20 @@ import { weapons } from "./entity/template.js";
 
 const input = {
     key: {
-        65: false,  // A
-        68: false,  // D
-        83: false,  // S
-        87: false   // W
+        16: false,  // LShift   Run
+        27: false,  // Esc      Pause
+        32: false,  // Space    Dodge
+        65: false,  // A        Move Left
+        68: false,  // D        Move Right
+        83: false,  // S        Move Down
+        87: false   // W        Move Up
     },
     mouse: {
-        0: false,   // LMB
+        0: false,   // LMB      Shoot
         1: false,   // MMB
         2: false    // RMB
     },
-    pause: false,   // Esc
+    pause: false,
     resume: false,
     weaponSwap: -1
 }

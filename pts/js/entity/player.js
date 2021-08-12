@@ -5,7 +5,7 @@
 import { ais } from "./template.js";
 
 class Player extends Pt {
-    constructor(pos, color = '#000', shape = 'square', size = 5, speed = 5) {
+    constructor(pos, color = '#000', shape = 'square', size = 5, speed = 2) {
         /**
          * Player constructor.
          * @param {Pt} pos start location
