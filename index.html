@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN' "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>made of everything awesome</title>
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/styles.css" />
+  <script type="text/javascript" src="/tools/cards.js"></script>
+</head>
+
+<body>
+  <header>
+    <ul>
+      <li style="float: left;"><a href="/">moea</a></li>
+      <li><a href="#tools">tools</a></li>
+    </ul>
+  </header>
+
+  <main>
+    <!-- <article class="class1">
+      <p><span class="date">2023-02-12</span>
+      <pre>
+ ☺☻♥♦♣♠•◘○◙♂♀♪♫☼<span style="color: #0f0; background-color: #000;">►◄↕‼¶§▬↨↑↓→←∟↔▲▼</span>
+ !"#$%&'()*+,-./0123456789:;<=>?
+@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_
+`abcdefghijklmnopqrstuvwxyz{|}~⌂
+ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒ
+áíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐
+└┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀
+αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ 
+
+the quick brown fox jumps over the lazy dog
+      </pre>
+      </p>
+    </article>
+
+    <article class="class2">
+      <p><span class="date">2023-02-12</span>
+      <p>Test.</p>
+      </p>
+    </article> -->
+
+    <section id="tools">
+      <h1>tools</h1>
+      <div class="container">
+        <h3>Card decks</h3>
+        <div>
+          <p id="standard"></p>
+          <select title="Change deck" onchange="change_deck('standard', value)">
+            <option value="standard">Standard</option>
+            <option value="jokers">+ Jokers</option>
+          </select>
+          <button title="Shuffle" onclick="deck.standard.shuffle()">🔀</button>
+          <button title="Previous" onclick="deck.standard.prev()">⏮️</button>
+          <button title="Next" onclick="deck.standard.next()">⏭️</button>
+          <button title="Copy to clipboard" onclick="deck.standard.copy()">📋</button>
+          <button title="Draw" onclick="deck.standard.draw()">▶️</button>
+        </div>
+        <br>
+        <div>
+          <img src="" class="" id="tarot">
+          <p id="meaning"></p>
+          <select title="Change deck" onchange="change_deck('tarot', value)">
+            <option value="tarot">Tarot</option>
+            <option value="major">Major</option>
+            <option value="minor">Minor</option>
+            <option value="cups">Cups</option>
+            <option value="pentacles">Pentacles</option>
+            <option value="swords">Swords</option>
+            <option value="wands">Wands</option>
+          </select>
+          <button title="Shuffle" onclick="deck.tarot.shuffle()">🔀</button>
+          <button title="Previous" onclick="deck.tarot.prev()">⏮️</button>
+          <button title="Next" onclick="deck.tarot.next()">⏭️</button>
+          <button title="Rotate" onclick="deck.tarot.rotate()">🔄</button>
+          <button title="Draw" onclick="deck.tarot.draw()">▶️</button>
+        </div>
+      </div>
+    </section>
+  </main>
+</body>
+
+</html>
