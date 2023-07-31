@@ -1,5 +1,6 @@
 var data, deck, decks;
-Promise.all([fetch('/tools/assets/cards.json').then(function (obj) {
+
+Promise.all([fetch("/tools/assets/cards.json").then(function (obj) {
     return obj.json();
 })]).then(init_decks);
 
@@ -90,7 +91,7 @@ class TarotDeck {
             this.pos = this.drawn;
 
             const i = this.arr[this.pos];
-            if (typeof (this.deck[i]) === 'string') {
+            if (typeof (this.deck[i]) === "string") {
                 const name = this.deck[i];
                 this.deck[i] = new Image();
                 this.deck[i].src = data["tarot"].asset_dir + name + ".png";
@@ -125,9 +126,9 @@ class TarotDeck {
         const j = this.flip[this.pos];
         document.getElementById("tarot").src = this.deck[i].src;
         if (j === 1) {
-            document.getElementById("tarot").classList.add('flip');
+            document.getElementById("tarot").classList.add("flip");
         } else {
-            document.getElementById("tarot").classList.remove('flip');
+            document.getElementById("tarot").classList.remove("flip");
         }
         document.getElementById("meaning").innerHTML = this.meanings[i][j];
     }
