@@ -61,7 +61,7 @@ class StandardDeck {
 
     show() {
         const i = this.arr[this.pos];
-        document.getElementById("standard").innerHTML = this.deck[i];
+        document.getElementById("standard").innerHTML = `<h2>${this.deck[i]}</h2>`;
     }
 
     shuffle() {

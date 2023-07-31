@@ -83,3 +83,7 @@ textarea {
   height: 50vh;
   width: 95%;
 }
+
+input[type=number] {
+  width: 50px;
+}

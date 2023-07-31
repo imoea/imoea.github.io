@@ -8,6 +8,7 @@
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="stylesheet" type="text/css" media="screen" href="/styles.css" />
   <script type="text/javascript" src="/tools/cards.js"></script>
+  <script type="text/javascript" src="/tools/dice.js"></script>
 </head>
 
 <body>
@@ -76,6 +77,15 @@ the quick brown fox jumps over the lazy dog
           <button title="Next" onclick="deck.tarot.next()">⏭️</button>
           <button title="Rotate" onclick="deck.tarot.rotate()">🔄</button>
           <button title="Draw" onclick="deck.tarot.draw()">▶️</button>
+        </div>
+        <h3>Dice</h3>
+        <div>
+          <h2 id="dice_result"></h2>
+          Roll <input title="Number of dice" type="number" id="dice_n" min="1" value="1">
+          d <input title="Number of sides; 0 = Fate die" type="number" id="dice_x" min="0" value="6">
+          + <input title="Modifier" type="number" id="dice_m" value="0">
+          <button title="Roll!" onclick="roll_dice()">🎲</button>
+          <p id="dice_history"></p>
         </div>
       </div>
     </section>
