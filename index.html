@@ -46,47 +46,55 @@ the quick brown fox jumps over the lazy dog
     <section id="tools">
       <h1>tools</h1>
       <div class="container">
-        <h3>Card decks</h3>
-        <div>
-          <p id="standard"></p>
-          <select title="Change deck" onchange="change_deck('standard', value)">
-            <option value="standard">Standard</option>
-            <option value="jokers">+ Jokers</option>
-          </select>
-          <button title="Shuffle" onclick="deck.standard.shuffle()">🔀</button>
-          <button title="Previous" onclick="deck.standard.prev()">⏮️</button>
-          <button title="Next" onclick="deck.standard.next()">⏭️</button>
-          <button title="Copy to clipboard" onclick="deck.standard.copy()">📋</button>
-          <button title="Draw" onclick="deck.standard.draw()">▶️</button>
-        </div>
-        <br>
-        <div>
-          <img src="" class="" id="tarot">
-          <p id="meaning"></p>
-          <select title="Change deck" onchange="change_deck('tarot', value)">
-            <option value="tarot">Tarot</option>
-            <option value="major">Major</option>
-            <option value="minor">Minor</option>
-            <option value="cups">Cups</option>
-            <option value="pentacles">Pentacles</option>
-            <option value="swords">Swords</option>
-            <option value="wands">Wands</option>
-          </select>
-          <button title="Shuffle" onclick="deck.tarot.shuffle()">🔀</button>
-          <button title="Previous" onclick="deck.tarot.prev()">⏮️</button>
-          <button title="Next" onclick="deck.tarot.next()">⏭️</button>
-          <button title="Rotate" onclick="deck.tarot.rotate()">🔄</button>
-          <button title="Draw" onclick="deck.tarot.draw()">▶️</button>
-        </div>
-        <h3>Dice</h3>
-        <div>
+        <details>
+          <summary>Dice</summary>
           <h2 id="dice_result"></h2>
-          Roll <input title="Number of dice" type="number" id="dice_n" min="1" value="1">
-          d <input title="Number of sides; 0 = Fate die" type="number" id="dice_x" min="0" value="6">
-          + <input title="Modifier" type="number" id="dice_m" value="0">
-          <button title="Roll!" onclick="roll_dice()">🎲</button>
+          <p>
+            Roll <input title="Number of dice" type="number" id="dice_n" min="1" value="1">
+            d <input title="Number of sides; 0 = Fate die" type="number" id="dice_x" min="0" value="6">
+            + <input title="Modifier" type="number" id="dice_m" value="0">
+            <button title="Roll!" onclick="roll_dice()">🎲</button>
+          </p>
           <p id="dice_history"></p>
-        </div>
+        </details>
+
+        <details>
+          <summary>Standard deck</summary>
+          <p id="standard"></p>
+          <p>
+            <select title="Change deck" onchange="change_deck('standard', value)">
+              <option value="standard">Standard</option>
+              <option value="jokers">+ Jokers</option>
+            </select>
+            <button title="Shuffle" onclick="deck.standard.shuffle()">🔀</button>
+            <button title="Previous" onclick="deck.standard.prev()">⏮️</button>
+            <button title="Next" onclick="deck.standard.next()">⏭️</button>
+            <button title="Copy to clipboard" onclick="deck.standard.copy()">📋</button>
+            <button title="Draw" onclick="deck.standard.draw()">▶️</button>
+          </p>
+        </details>
+
+        <details>
+          <summary>Tarot deck</summary>
+          <p><img src="" class="" id="tarot"></p>
+          <p id="meaning"></p>
+          <p>
+            <select title="Change deck" onchange="change_deck('tarot', value)">
+              <option value="tarot">Tarot</option>
+              <option value="major">Major</option>
+              <option value="minor">Minor</option>
+              <option value="cups">Cups</option>
+              <option value="pentacles">Pentacles</option>
+              <option value="swords">Swords</option>
+              <option value="wands">Wands</option>
+            </select>
+            <button title="Shuffle" onclick="deck.tarot.shuffle()">🔀</button>
+            <button title="Previous" onclick="deck.tarot.prev()">⏮️</button>
+            <button title="Next" onclick="deck.tarot.next()">⏭️</button>
+            <button title="Rotate" onclick="deck.tarot.rotate()">🔄</button>
+            <button title="Draw" onclick="deck.tarot.draw()">▶️</button>
+          </p>
+        </details>
       </div>
     </section>
   </main>

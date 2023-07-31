@@ -5,6 +5,10 @@
   font-style: normal;
 }
 
+article {
+  padding: 0 0.5em;
+}
+
 body {
   margin: 0;
   background-color: #f2f2f2;
@@ -21,11 +25,10 @@ main {
   font-size: 100%;
 }
 
-header ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0.5em 0;
-  text-align: right;
+header a {
+  color: #222222;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
 }
 
 header li {
@@ -33,19 +36,29 @@ header li {
   padding: 0 0.25em;
 }
 
-header a {
-  color: #222222;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
+header ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.5em 0;
+  text-align: right;
 }
 
-article {
-  padding: 0 0.5em;
+input[type=number] {
+  width: 50px;
 }
 
 pre {
   font-family: 'IBM PC', Courier, monospace;
   line-height: 1em;
+}
+
+summary {
+  font-weight: bold;
+}
+
+textarea {
+  height: 50vh;
+  width: 95%;
 }
 
 .class1 {
@@ -54,6 +67,11 @@ pre {
 
 .class2 {
   border-left: 3px solid tomato;
+}
+
+.container {
+  margin: 10px auto;
+  text-align: center;
 }
 
 .date {
@@ -65,11 +83,6 @@ pre {
   color: #f2f2f2;
 }
 
-.container {
-  margin: 10px auto;
-  text-align: center;
-}
-
 .flip {
   transform: rotate(180deg);
   -moz-transform: rotate(180deg);
@@ -77,13 +90,4 @@ pre {
   -o-transform: rotate(180deg);
   -khtml-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
-}
-
-textarea {
-  height: 50vh;
-  width: 95%;
-}
-
-input[type=number] {
-  width: 50px;
 }
