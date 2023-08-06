@@ -53,7 +53,7 @@ the quick brown fox jumps over the lazy dog
             Roll <input title="Number of dice" type="number" id="dice_n" min="1" value="1">
             d <input title="Number of sides; 0 = Fate die" type="number" id="dice_x" min="0" value="6">
             + <input title="Modifier" type="number" id="dice_m" value="0">
-            <button title="Roll!" onclick="roll_dice()">🎲</button>
+            <button title="Roll" onclick="roll_dice()">🎲</button>
           </p>
           <p id="dice_history"></p>
         </details>
@@ -65,6 +65,10 @@ the quick brown fox jumps over the lazy dog
             <select title="Change deck" onchange="change_deck('standard', value)">
               <option value="standard">Standard</option>
               <option value="jokers">+ Jokers</option>
+              <option value="clubs">Clubs</option>
+              <option value="diamonds">Diamonds</option>
+              <option value="hearts">Hearts</option>
+              <option value="spades">Spades</option>
             </select>
             <button title="Shuffle" onclick="deck.standard.shuffle()">🔀</button>
             <button title="Previous" onclick="deck.standard.prev()">⏮️</button>

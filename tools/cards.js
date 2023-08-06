@@ -9,6 +9,10 @@ function init_decks(then) {
     decks = {
         "standard": new StandardDeck(0, 52),
         "jokers": new StandardDeck(0, 54),
+        "clubs": new StandardDeck(0, 13),
+        "diamonds": new StandardDeck(13, 26),
+        "hearts": new StandardDeck(26, 39),
+        "spades": new StandardDeck(39, 52),
         "tarot": new TarotDeck(0, 78),
         "major": new TarotDeck(0, 22),
         "minor": new TarotDeck(22, 78),
