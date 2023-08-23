@@ -16,7 +16,7 @@ body {
 }
 
 details>summary {
-  background: #cccccc;
+  background-color: #cccccc;
   cursor: pointer;
 }
 
