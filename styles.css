@@ -5,6 +5,12 @@
   font-style: normal;
 }
 
+a {
+  color: #222;
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+}
+
 article {
   padding: 0 0.5em;
 }
@@ -31,12 +37,6 @@ main {
   width: auto;
   max-width: 70ch;
   font-size: 100%;
-}
-
-a {
-  color: #222;
-  font-family: 'Courier New', Courier, monospace;
-  font-weight: bold;
 }
 
 header li {
