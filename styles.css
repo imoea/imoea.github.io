@@ -12,12 +12,15 @@ article {
 body {
   margin: 0;
   background-color: #f2f2f2;
-  color: #222222;
+  color: #222;
+  font-family: sans-serif;
 }
 
 details>summary {
-  background-color: #cccccc;
+  background-color: #ccc;
+  border: 1px solid #f2f2f2;
   cursor: pointer;
+  font-family: 'Courier New', Courier, monospace;
 }
 
 header,
@@ -30,8 +33,8 @@ main {
   font-size: 100%;
 }
 
-header a {
-  color: #222222;
+a {
+  color: #222;
   font-family: 'Courier New', Courier, monospace;
   font-weight: bold;
 }
@@ -84,7 +87,7 @@ textarea {
   font-family: 'Courier New', Courier, monospace;
   font-size: 90%;
   font-weight: bold;
-  background-color: #222222;
+  background-color: #222;
   color: #f2f2f2;
 }
 
@@ -95,4 +98,9 @@ textarea {
   -o-transform: rotate(180deg);
   -khtml-transform: rotate(180deg);
   -ms-transform: rotate(180deg);
+}
+
+.terminal {
+  color: #0f0;
+  background-color: #000;
 }

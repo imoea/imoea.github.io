@@ -37,7 +37,7 @@ class StandardDeck {
     copy() {
         let text = new Array();
         this.arr.forEach(i => text.push(this.deck[i]));
-        text = text.join(", ");
+        text = text.join(" ");
         document.getElementById("standard").innerHTML = text;
         navigator.clipboard.writeText(text);
     };
@@ -128,13 +128,7 @@ class TarotDeck {
     show() {
         const i = this.arr[this.pos];
         const j = this.flip[this.pos];
-        document.getElementById("tarot").src = this.deck[i].src;
-        if (j === 1) {
-            document.getElementById("tarot").classList.add("flip");
-        } else {
-            document.getElementById("tarot").classList.remove("flip");
-        }
-        document.getElementById("meaning").innerHTML = this.meanings[i][j];
+        document.getElementById("tarot").innerHTML = `<img src="${this.deck[i].src}" class="${(j === 1) ? "flip" : ""}"><br>${this.meanings[i][j]}`;
     }
 
     shuffle() {
@@ -142,8 +136,7 @@ class TarotDeck {
         flip_arr(this.flip);
         this.drawn = -1;
         this.pos = 0;
-        document.getElementById("tarot").src = "";
-        document.getElementById("meaning").innerHTML = "";
+        document.getElementById("tarot").innerHTML = "";
     }
 }
 
@@ -160,12 +153,7 @@ function change_deck(type, value) {
     if (deck[type].drawn !== -1) {
         deck[type].show();
     } else {
-        if (type === "standard") {
-            document.getElementById(type).innerHTML = ""
-        } else {
-            document.getElementById(type).src = "";
-            document.getElementById("meaning").innerHTML = "";
-        }
+        document.getElementById(type).innerHTML = "";
     }
 }
 

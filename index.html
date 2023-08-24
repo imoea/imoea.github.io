@@ -7,100 +7,45 @@
   <title>made of everything awesome</title>
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="stylesheet" type="text/css" media="screen" href="/styles.css" />
-  <script type="text/javascript" src="/tools/cards.js"></script>
-  <script type="text/javascript" src="/tools/dice.js"></script>
 </head>
 
 <body>
   <header>
     <ul>
       <li style="float: left;"><a href="/">moea</a></li>
-      <li><a href="#tools">tools</a></li>
+      <li><a href="/tools.html">tools</a></li>
     </ul>
   </header>
 
   <main>
-    <!-- <article class="class1">
-      <p><span class="date">2023-02-12</span>
+    <article class="class1">
+      <p><span class="date">2023-08-24</span>
+      <p><a href="https://int10h.org/oldschool-pc-fonts/fontlist/font?ibm_vga_8x14">IBM VGA 8x14</a> font test:</p>
       <pre>
- ☺☻♥♦♣♠•◘○◙♂♀♪♫☼<span style="color: #0f0; background-color: #000;">►◄↕‼¶§▬↨↑↓→←∟↔▲▼</span>
- !"#$%&'()*+,-./0123456789:;<=>?
+ ☺☻♥♦♣♠•◘○◙♂♀♪♫☼►◄↕‼¶§▬↨↑↓→←∟↔▲▼
+<span class="terminal"> !"#$%&'()*+,-./0123456789:;<=>?
 @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_
-`abcdefghijklmnopqrstuvwxyz{|}~⌂
+`abcdefghijklmnopqrstuvwxyz{|}~</span>⌂
 ÇüéâäàåçêëèïîìÄÅÉæÆôöòûùÿÖÜ¢£¥₧ƒ
 áíóúñÑªº¿⌐¬½¼¡«»░▒▓│┤╡╢╖╕╣║╗╝╜╛┐
 └┴┬├─┼╞╟╚╔╩╦╠═╬╧╨╤╥╙╘╒╓╫╪┘┌█▄▌▐▀
 αßΓπΣσµτΦΘΩδ∞φε∩≡±≥≤⌠⌡÷≈°∙·√ⁿ²■ 
 
-the quick brown fox jumps over the lazy dog
+the <span class="terminal">quick brown fox</span> jumps over the <span class="terminal">lazy dog</span>
       </pre>
       </p>
     </article>
 
     <article class="class2">
-      <p><span class="date">2023-02-12</span>
-      <p>Test.</p>
+      <p><span class="date">2023-08-24</span>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna
+        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+        consequat. Duis
+        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
+        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
       </p>
-    </article> -->
-
-    <section id="tools">
-      <h1>tools</h1>
-      <div class="container">
-        <details>
-          <summary>Dice</summary>
-          <h2 id="dice_result"></h2>
-          <p>
-            Roll <input title="Number of dice" type="number" id="dice_n" min="1" value="1">
-            d <input title="Number of sides; 0 = Fate die" type="number" id="dice_x" min="0" value="6">
-            + <input title="Modifier" type="number" id="dice_m" value="0">
-            <button title="Roll" onclick="roll_dice()">🎲</button>
-          </p>
-          <p id="dice_history"></p>
-        </details>
-
-        <details>
-          <summary>Standard deck</summary>
-          <p id="standard"></p>
-          <p>
-            <select title="Change deck" onchange="change_deck('standard', value)">
-              <option value="standard">Standard</option>
-              <option value="jokers">+ Jokers</option>
-              <option value="clubs">Clubs</option>
-              <option value="diamonds">Diamonds</option>
-              <option value="hearts">Hearts</option>
-              <option value="spades">Spades</option>
-            </select>
-            <button title="Shuffle" onclick="deck.standard.shuffle()">🔀</button>
-            <button title="Previous" onclick="deck.standard.prev()">⏮️</button>
-            <button title="Next" onclick="deck.standard.next()">⏭️</button>
-            <button title="Copy to clipboard" onclick="deck.standard.copy()">📋</button>
-            <button title="Draw" onclick="deck.standard.draw()">▶️</button>
-          </p>
-        </details>
-
-        <details>
-          <summary>Tarot deck</summary>
-          <p><img src="" class="" id="tarot"></p>
-          <p id="meaning"></p>
-          <p>
-            <select title="Change deck" onchange="change_deck('tarot', value)">
-              <option value="tarot">Tarot</option>
-              <option value="major">Major</option>
-              <option value="minor">Minor</option>
-              <option value="cups">Cups</option>
-              <option value="pentacles">Pentacles</option>
-              <option value="swords">Swords</option>
-              <option value="wands">Wands</option>
-            </select>
-            <button title="Shuffle" onclick="deck.tarot.shuffle()">🔀</button>
-            <button title="Previous" onclick="deck.tarot.prev()">⏮️</button>
-            <button title="Next" onclick="deck.tarot.next()">⏭️</button>
-            <button title="Rotate" onclick="deck.tarot.rotate()">🔄</button>
-            <button title="Draw" onclick="deck.tarot.draw()">▶️</button>
-          </p>
-        </details>
-      </div>
-    </section>
+    </article>
   </main>
 </body>
 
