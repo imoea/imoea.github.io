@@ -1,0 +1,68 @@
+{
+    "yes_no": [
+        "No, and",
+        "No",
+        [
+            "No, but",
+            "but"
+        ],
+        [
+            "Yes, but",
+            "but"
+        ],
+        "Yes",
+        "Yes, and"
+    ],
+    "but": [
+        "change in environment",
+        "equipment failure",
+        "timely or untimely event",
+        "wrong assumption",
+        "change in reaction",
+        "twist in relationship"
+    ],
+    "success": [
+        [
+            "No, and the PC's actions",
+            "problem"
+        ],
+        "No",
+        [
+            "No, but the PC's actions",
+            "perk"
+        ],
+        [
+            "Yes, but the PC's actions",
+            "problem"
+        ],
+        "Yes",
+        [
+            "Yes, and the PC's actions",
+            "perk"
+        ]
+    ],
+    "perk": [
+        "achieve a bigger effect",
+        "are more effective than expected",
+        "create a longer lasting effect",
+        "provide a useful observation",
+        "set themself up for the future",
+        "take less time than expected",
+        "appear convincing despite the result",
+        "are hidden or disguised",
+        "create useful trouble",
+        "provoke the intended response"
+    ],
+    "problem": [
+        "afflict them according to the source",
+        "alter their being significantly",
+        "cause fatigue until their next rest",
+        "cause harm to themself",
+        "take longer than expected",
+        "waste an item or resource",
+        "cause chaos or collateral damage",
+        "create a new threat against them",
+        "displace their intended target",
+        "reveal information about themself"
+    ]
+}

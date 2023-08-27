@@ -9,6 +9,7 @@
   <link rel="stylesheet" type="text/css" media="screen" href="/styles.css" />
   <script type="text/javascript" src="/tools/cards.js"></script>
   <script type="text/javascript" src="/tools/dice.js"></script>
+  <script type="text/javascript" src="/tools/oracles.js"></script>
 </head>
 
 <body>
@@ -31,6 +32,38 @@
           <button title="Roll" onclick="roll_dice()">🎲</button>
         </p>
         <p id="dice_history"></p>
+      </details>
+
+      <details>
+        <summary>Oracle</summary>
+        <details>
+          <summary class="oracle">Yes/No</summary>
+          <p id="yes_no"></p>
+          <p>
+            <label title="Include options involving other characters">Others are present
+              <input type="checkbox" id="yes_no_">
+            </label>
+            <button title="Roll" onclick="ask_oracle('yes_no')">🎲</button>
+          </p>
+        </details>
+
+        <details>
+          <summary class="oracle">Success?</summary>
+          <p id="success"></p>
+          <p>
+            <label title="Include options involving other characters">Others are present
+              <input type="checkbox" id="success_">
+            </label>
+            <select title="Chances" onchange="change_dice('success', value)">
+              <option value=4>d4 (disadv)</option>
+              <option value=6 selected>d6 (base)</option>
+              <option value=8>d8</option>
+              <option value=10>d10</option>
+              <option value=12>d12 (adv)</option>
+            </select>
+            <button title="Roll" onclick="ask_oracle('success')">🎲</button>
+          </p>
+        </details>
       </details>
 
       <details>
