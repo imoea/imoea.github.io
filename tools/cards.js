@@ -1,11 +1,11 @@
-var data, deck, decks;
+let card_data, deck, decks;
 
 Promise.all([fetch("/tools/assets/cards.json").then(function (obj) {
     return obj.json();
 })]).then(init_decks);
 
 function init_decks(then) {
-    data = then[0];
+    card_data = then[0];
     decks = {
         "standard": new StandardDeck(0, 52),
         "jokers": new StandardDeck(0, 54),
@@ -26,7 +26,7 @@ function init_decks(then) {
 
 class StandardDeck {
     constructor(start, end) {
-        this.deck = data.standard.cards;
+        this.deck = card_data.standard.cards;
         this.arr = cut_deck(start, end);  // array of indices
         this.drawn = -1;
         this.pos = 0;
@@ -79,8 +79,8 @@ class StandardDeck {
 
 class TarotDeck {
     constructor(start, end) {
-        this.deck = data.tarot.cards;
-        this.meanings = data.tarot.meanings;
+        this.deck = card_data.tarot.cards;
+        this.meanings = card_data.tarot.meanings;
         this.arr = cut_deck(start, end);  // array of indices
         this.flip = arrange_deck(end - start);  // array of orientations
         this.drawn = -1;
@@ -98,7 +98,7 @@ class TarotDeck {
             if (typeof (this.deck[i]) === "string") {
                 const name = this.deck[i];
                 this.deck[i] = new Image();
-                this.deck[i].src = data["tarot"].asset_dir + name + ".png";
+                this.deck[i].src = card_data["tarot"].asset_dir + name + ".png";
             }
             this.show();
         }
