@@ -22,6 +22,24 @@ body {
   font-family: sans-serif;
 }
 
+button {
+  background-color: #ccc;
+  border: 1px solid #f2f2f2;
+  border-radius: 0.3em;
+  color: #222;
+  cursor: pointer;
+}
+
+/*
+button:hover {
+  background-color: #aaa;
+  color: #222;
+} */
+
+details>p {
+  margin: 0.5em;
+}
+
 details>summary {
   background-color: #ccc;
   border: 1px solid #f2f2f2;
@@ -52,7 +70,7 @@ header ul {
 }
 
 input[type=number] {
-  width: 50px;
+  width: 45px;
 }
 
 pre {
@@ -101,9 +119,18 @@ textarea {
 }
 
 .oracle {
-  background-color: #000;
-  color: #fff;
   margin-left: 0.5em;
+}
+
+.selected {
+  background-color: #222;
+  color: #f2f2f2;
+  font-weight: bold;
+}
+
+.table {
+  background-color: #222;
+  color: #f2f2f2;
 }
 
 .terminal {

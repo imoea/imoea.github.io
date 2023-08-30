@@ -10,21 +10,8 @@ function init_oracles(then) {
 }
 
 function ask_oracle(table) {
-    let x;
-    switch (table) {
-        case "success":
-            x = (document.getElementById("success_").checked) ? 10 : 6;
-            change_dice("perk", x);
-            change_dice("problem", x);
-            break;
-        case "yes/no":
-            x = (document.getElementById("yes_no_").checked) ? 6 : 4;
-            change_dice("but", x);
-            break;
-    }
-
-    const answer = roll_table(table);
-    document.getElementById(table).innerHTML = `<h4>${answer.join(" ")}</h4>`;
+    document.getElementById("answer").innerHTML = roll_table(table).join(" ").trim()
+        .replace(/\n/g, "<br>").replace(/(faction|npc|pc|thread|threat)/gi, "<b>$&</b>");
 }
 
 function change_dice(table, x) {
@@ -36,13 +23,35 @@ function roll_table(table) {
     const roll = Math.min(Math.floor(Math.random() * x), oracle_data[table].length - 1);
     const results = oracle_data[table][roll];
     let answer = [];
-    if (typeof (results) === "object") {
+    if (results && typeof (results) === "object") {
         results.forEach(result => {
-            if (result in oracle_data) { answer = answer.concat(roll_table(result)); }
-            else { answer.push(result); }
+            if (result in oracle_data) {
+                answer = answer.concat(roll_table(result));
+            } else if (result) {
+                answer.push(result);
+            }
         });
     } else {
         answer.push(results);
     }
     return answer;
+}
+
+function select(id) {
+    const ele = document.getElementById(id);
+    const eles = document.getElementsByName(ele.name);
+    if (eles.length == 1) {
+        ele.classList.toggle("selected");
+    } else {
+        eles.forEach(e => { e.classList.remove("selected"); });
+        ele.classList.add("selected");
+    }
+
+    if (id.startsWith("d")) {
+        change_dice(ele.name, Number(id.substring(1)));
+    }
+
+    if (id in oracle_data) {
+        ask_oracle(id);
+    }
 }

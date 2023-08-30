@@ -34,36 +34,29 @@
         <p id="dice_history"></p>
       </details>
 
-      <details>
+      <details open>
         <summary>Oracle</summary>
-        <details>
-          <summary class="oracle">Yes/No</summary>
-          <p id="yes_no"></p>
-          <p>
-            <label title="Include options involving other characters">Others are present
-              <input type="checkbox" id="yes_no_">
-            </label>
-            <button title="Roll" onclick="ask_oracle('yes_no')">🎲</button>
-          </p>
-        </details>
-
-        <details>
-          <summary class="oracle">Success?</summary>
-          <p id="success"></p>
-          <p>
-            <label title="Include options involving other characters">Others are present
-              <input type="checkbox" id="success_">
-            </label>
-            <select title="Chances" onchange="change_dice('success', value)">
-              <option value=4>d4 (disadv)</option>
-              <option value=6 selected>d6 (base)</option>
-              <option value=8>d8</option>
-              <option value=10>d10</option>
-              <option value=12>d12 (adv)</option>
-            </select>
-            <button title="Roll" onclick="ask_oracle('success')">🎲</button>
-          </p>
-        </details>
+        <p id="answer" style="height:6em;"></p>
+        <p>
+          <button id="set_the_scene" name="oracle" onclick="select(id)" style="width:33.33%;">Set the
+            scene</button><button id="pacing" name="oracle" onclick="select(id)" style="width:33.33%;">Pacing
+            move</button><button id="random_event" name="oracle" onclick="select(id)"
+            style="width:33.33%;">Random</button>
+          <br>
+          <button id="action" name="oracle" onclick="select(id)" style="width:33.33%;">Action</button><button
+            id="concept" name="oracle" onclick="select(id)" style="width:33.33%;">Concept</button><button
+            id="description" name="oracle" onclick="select(id)" style="width:33.33%;">Description</button>
+          <br>
+          <button id="how_much" name="oracle" onclick="select(id)" style="width:33.33%;">How
+            much?</button><button id="yes_no" name="oracle" onclick="select(id)"
+            style="width:33.33%;">Yes/No</button><button id="success" name="oracle" onclick="select(id)"
+            style="width:33.33%;">Success?</button>
+        <div><button id="d4" name="success" onclick="select(id)" style="width:15%;">d4</button><button id="d6"
+            name="success" onclick="select(id)" class="selected" style="width:15%;">d6</button><button id="d8"
+            name="success" onclick="select(id)" style="width:15%;">d8</button><button id="d10" name="success"
+            onclick="select(id)" style="width:15%;">d10</button><button id="d12" name="success" onclick="select(id)"
+            style="width:15%;">d12</button></div>
+        </p>
       </details>
 
       <details>
@@ -88,7 +81,7 @@
 
       <details>
         <summary>Tarot deck</summary>
-        <p id="tarot"></p>
+        <p id="tarot" style="height:470px;"></p>
         <p>
           <select title="Change deck" onchange="change_deck('tarot', value)">
             <option value="tarot">Tarot</option>
