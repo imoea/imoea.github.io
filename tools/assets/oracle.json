@@ -258,7 +258,21 @@
   "helps the PCs",
   "hinders the PCs"
  ],
- "concept": [
+ "description": [
+  [
+   "adverb",
+   "adjective"
+  ]
+ ],
+ "detail": [
+  [
+   "description"
+  ],
+  [
+   "element"
+  ]
+ ],
+ "element": [
   [
    "adjective",
    "noun"
@@ -267,12 +281,6 @@
    "noun",
    "of",
    "noun"
-  ]
- ],
- "description": [
-  [
-   "adverb",
-   "adjective"
   ]
  ],
  "event_focus": [
@@ -408,7 +416,10 @@
   "Advance a threat",
   "An NPC takes action",
   "Foreshadow trouble",
-  "Reveal a new detail"
+  [
+   "\nReveal a new detail:\n",
+   "detail"
+  ]
  ],
  "perk": [
   "achieve a bigger effect",
@@ -444,18 +455,6 @@
  ],
  "scene": [
   [
-   "\nAction:\n",
-   "complication"
-  ],
-  [
-   "\nAction:\n",
-   "complication"
-  ],
-  [
-   "\nAction:\n",
-   "complication"
-  ],
-  [
    "\nDowntime:\n",
    "complication"
   ],
@@ -466,9 +465,30 @@
   [
    "\nMeanwhile...\n",
    "complication"
+  ],
+  [
+   "\nAction:\n",
+   "complication"
+  ],
+  [
+   "\nAction:\n",
+   "complication"
+  ],
+  [
+   "\nAction:\n",
+   "complication"
   ]
  ],
  "set_the_scene": [
+  [
+   "scene"
+  ],
+  [
+   "scene"
+  ],
+  [
+   "scene"
+  ],
   [
    "scene"
   ],

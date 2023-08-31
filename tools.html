@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" media="screen" href="/styles.css" />
   <script type="text/javascript" src="/tools/cards.js"></script>
   <script type="text/javascript" src="/tools/dice.js"></script>
-  <script type="text/javascript" src="/tools/oracles.js"></script>
+  <script type="text/javascript" src="/tools/oracle.js"></script>
 </head>
 
 <body>
@@ -24,64 +24,70 @@
     <div class="container">
       <details>
         <summary>Dice</summary>
-        <p id="dice_result"></p>
         <p>
           Roll <input title="Number of dice" type="number" id="dice_n" min="1" value="1">
           d <input title="Number of sides; 0 = Fate die" type="number" id="dice_x" min="0" value="6">
           + <input title="Modifier" type="number" id="dice_m" value="0">
-          <button title="Roll" onclick="roll_dice()">🎲</button>
+          <button title="Roll" onclick="pool.roll()">🎲</button>
         </p>
         <p id="dice_history"></p>
+        <p id="dice_result"></p>
       </details>
 
       <details>
         <summary>Oracle</summary>
-        <p id="answer" style="height:6em;"></p>
         <p>
-          <button id="set_the_scene" name="oracle" onclick="select(id)" style="width:33.33%;">Set the
-            scene</button><button id="pacing" name="oracle" onclick="select(id)" style="width:33.33%;">Pacing
-            move</button><button id="random_event" name="oracle" onclick="select(id)"
+          <button id="chaos_low" name="chaos" onclick="oracle.select(id)" style="width:30%;">Low chaos</button><button
+            id="chaos_normal" name="chaos" onclick="oracle.select(id)" class="selected"
+            style="width:30%;">Normal</button><button id="chaos_high" name="chaos" onclick="oracle.select(id)"
+            style="width:30%;">High chaos</button>
+          <br>
+          <button id="d4" name="success" onclick="oracle.select(id)" style="width:18%;">d4</button><button id="d6"
+            name="success" onclick="oracle.select(id)" class="selected" style="width:18%;">d6</button><button id="d8"
+            name="success" onclick="oracle.select(id)" style="width:18%;">d8</button><button id="d10" name="success"
+            onclick="oracle.select(id)" style="width:18%;">d10</button><button id="d12" name="success"
+            onclick="oracle.select(id)" style="width:18%;">d12</button>
+        </p>
+        <p>
+          <button id="set_the_scene" name="oracle" onclick="oracle.select(id)" style="width:33.33%;">Set the
+            scene</button><button id="pacing" name="oracle" onclick="oracle.select(id)" style="width:33.33%;">Pacing
+            move</button><button id="random_event" name="oracle" onclick="oracle.select(id)"
             style="width:33.33%;">Random</button>
           <br>
-          <button id="action" name="oracle" onclick="select(id)" style="width:33.33%;">Action</button><button
-            id="concept" name="oracle" onclick="select(id)" style="width:33.33%;">Concept</button><button
-            id="description" name="oracle" onclick="select(id)" style="width:33.33%;">Description</button>
+          <button id="action" name="oracle" onclick="oracle.select(id)" style="width:33.33%;">Action</button><button
+            id="description" name="oracle" onclick="oracle.select(id)" style="width:33.33%;">Description</button><button
+            id="element" name="oracle" onclick="oracle.select(id)" style="width:33.33%;">Element</button>
           <br>
-          <button id="how_much" name="oracle" onclick="select(id)" style="width:33.33%;">How
-            much?</button><button id="yes_no" name="oracle" onclick="select(id)"
-            style="width:33.33%;">Yes/No</button><button id="success" name="oracle" onclick="select(id)"
+          <button id="how_much" name="oracle" onclick="oracle.select(id)" style="width:33.33%;">How
+            much?</button><button id="yes_no" name="oracle" onclick="oracle.select(id)"
+            style="width:33.33%;">Yes/No</button><button id="success" name="oracle" onclick="oracle.select(id)"
             style="width:33.33%;">Success?</button>
-        <div><button id="d4" name="success" onclick="select(id)" style="width:15%;">d4</button><button id="d6"
-            name="success" onclick="select(id)" class="selected" style="width:15%;">d6</button><button id="d8"
-            name="success" onclick="select(id)" style="width:15%;">d8</button><button id="d10" name="success"
-            onclick="select(id)" style="width:15%;">d10</button><button id="d12" name="success" onclick="select(id)"
-            style="width:15%;">d12</button></div>
         </p>
+        <p id="answer"></p>
       </details>
 
       <details>
         <summary>Standard deck</summary>
-        <p id="standard"></p>
         <p>
           <select title="Change deck" onchange="change_deck('standard', value)">
             <option value="standard">Standard</option>
-            <option value="jokers">+ Jokers</option>
+            <option value="jokers">+Jokers</option>
             <option value="clubs">Clubs</option>
             <option value="diamonds">Diamonds</option>
             <option value="hearts">Hearts</option>
             <option value="spades">Spades</option>
           </select>
-          <button title="Shuffle" onclick="deck.standard.shuffle()">🔀</button>
-          <button title="Previous" onclick="deck.standard.prev()">⏮️</button>
-          <button title="Next" onclick="deck.standard.next()">⏭️</button>
-          <button title="Copy to clipboard" onclick="deck.standard.copy()">📋</button>
-          <button title="Draw" onclick="deck.standard.draw()">▶️</button>
+          <button title="Shuffle" onclick="decks.selected.standard.shuffle()">🔀</button>
+          <button title="Previous" onclick="decks.selected.standard.prev()">⏮️</button>
+          <button title="Next" onclick="decks.selected.standard.next()">⏭️</button>
+          <button title="Copy to clipboard" onclick="decks.selected.standard.copy()">📋</button>
+          <button title="Draw" onclick="decks.selected.standard.draw()">▶️</button>
         </p>
+        <p id="standard"></p>
       </details>
 
       <details>
         <summary>Tarot deck</summary>
-        <p id="tarot" style="height:470px;"></p>
         <p>
           <select title="Change deck" onchange="change_deck('tarot', value)">
             <option value="tarot">Tarot</option>
@@ -92,12 +98,13 @@
             <option value="swords">Swords</option>
             <option value="wands">Wands</option>
           </select>
-          <button title="Shuffle" onclick="deck.tarot.shuffle()">🔀</button>
-          <button title="Previous" onclick="deck.tarot.prev()">⏮️</button>
-          <button title="Next" onclick="deck.tarot.next()">⏭️</button>
-          <button title="Rotate" onclick="deck.tarot.rotate()">🔄</button>
-          <button title="Draw" onclick="deck.tarot.draw()">▶️</button>
+          <button title="Shuffle" onclick="decks.selected.tarot.shuffle()">🔀</button>
+          <button title="Previous" onclick="decks.selected.tarot.prev()">⏮️</button>
+          <button title="Next" onclick="decks.selected.tarot.next()">⏭️</button>
+          <button title="Rotate" onclick="decks.selected.tarot.rotate()">🔄</button>
+          <button title="Draw" onclick="decks.selected.tarot.draw()">▶️</button>
         </p>
+        <p id="tarot"></p>
       </details>
     </div>
   </main>

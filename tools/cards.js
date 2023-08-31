@@ -1,32 +1,37 @@
-let card_data, deck, decks;
+let decks;
 
-Promise.all([fetch("/tools/assets/cards.json").then(function (obj) {
-    return obj.json();
-})]).then(init_decks);
+Promise.all([fetch("/tools/assets/cards.json")
+    .then(function (obj) { return obj.json(); })])
+    .then(function (json) { decks = new Decks(json); });
 
-function init_decks(then) {
-    card_data = then[0];
-    decks = {
-        "standard": new StandardDeck(0, 52),
-        "jokers": new StandardDeck(0, 54),
-        "clubs": new StandardDeck(0, 13),
-        "diamonds": new StandardDeck(13, 26),
-        "hearts": new StandardDeck(26, 39),
-        "spades": new StandardDeck(39, 52),
-        "tarot": new TarotDeck(0, 78),
-        "major": new TarotDeck(0, 22),
-        "minor": new TarotDeck(22, 78),
-        "cups": new TarotDeck(22, 36),
-        "pentacles": new TarotDeck(36, 50),
-        "swords": new TarotDeck(50, 64),
-        "wands": new TarotDeck(64, 78)
-    };
-    deck = { "standard": decks.standard, "tarot": decks.tarot };
+class Decks {
+    constructor(json) {
+        this.data = json[0];
+        this.selection = {
+            "standard": new StandardDeck(this.data, 0, 52),
+            "jokers": new StandardDeck(this.data, 0, 54),
+            "clubs": new StandardDeck(this.data, 0, 13),
+            "diamonds": new StandardDeck(this.data, 13, 26),
+            "hearts": new StandardDeck(this.data, 26, 39),
+            "spades": new StandardDeck(this.data, 39, 52),
+            "tarot": new TarotDeck(this.data, 0, 78),
+            "major": new TarotDeck(this.data, 0, 22),
+            "minor": new TarotDeck(this.data, 22, 78),
+            "cups": new TarotDeck(this.data, 22, 36),
+            "pentacles": new TarotDeck(this.data, 36, 50),
+            "swords": new TarotDeck(this.data, 50, 64),
+            "wands": new TarotDeck(this.data, 64, 78)
+        };
+        this.selected = {
+            "standard": this.selection.standard,
+            "tarot": this.selection.tarot
+        };
+    }
 }
 
 class StandardDeck {
-    constructor(start, end) {
-        this.deck = card_data.standard.cards;
+    constructor(data, start, end) {
+        this.deck = data.standard.cards;
         this.arr = cut_deck(start, end);  // array of indices
         this.drawn = -1;
         this.pos = 0;
@@ -78,9 +83,10 @@ class StandardDeck {
 }
 
 class TarotDeck {
-    constructor(start, end) {
-        this.deck = card_data.tarot.cards;
-        this.meanings = card_data.tarot.meanings;
+    constructor(data, start, end) {
+        this.data = data
+        this.deck = data.tarot.cards;
+        this.meanings = data.tarot.meanings;
         this.arr = cut_deck(start, end);  // array of indices
         this.flip = arrange_deck(end - start);  // array of orientations
         this.drawn = -1;
@@ -98,7 +104,7 @@ class TarotDeck {
             if (typeof (this.deck[i]) === "string") {
                 const name = this.deck[i];
                 this.deck[i] = new Image();
-                this.deck[i].src = card_data["tarot"].asset_dir + name + ".png";
+                this.deck[i].src = this.data.tarot.asset_dir + name + ".png";
             }
             this.show();
         }
@@ -149,9 +155,9 @@ function arrange_deck(length) {
 }
 
 function change_deck(type, value) {
-    deck[type] = decks[value];
-    if (deck[type].drawn !== -1) {
-        deck[type].show();
+    decks.selected[type] = decks.selection[value];
+    if (decks.selected[type].drawn !== -1) {
+        decks.selected[type].show();
     } else {
         document.getElementById(type).innerHTML = "";
     }
