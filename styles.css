@@ -23,28 +23,45 @@ body {
 }
 
 button {
-  background-color: #ccc;
+  background-color: #f2f2f2;
   border: 1px solid #f2f2f2;
   border-radius: 0.3em;
   color: #222;
   cursor: pointer;
 }
 
-/*
 button:hover {
-  background-color: #aaa;
-  color: #222;
-} */
-
-details>p {
-  margin: 0.5em;
+  background-color: #ccc;
 }
 
-details>summary {
-  background-color: #ccc;
-  border: 1px solid #f2f2f2;
-  cursor: pointer;
-  font-family: 'Courier New', Courier, monospace;
+button.active {
+  background-color: #222;
+  color: #f2f2f2;
+  font-weight: bold;
+}
+
+button.chaos {
+  width: 30%;
+}
+
+button.list_tab {
+  width: 20%;
+}
+
+button.main_tab {
+  width: 25%;
+}
+
+button.oracle {
+  width: 33.33%;
+}
+
+button.random_tab {
+  width: 20%;
+}
+
+button.success {
+  width: 18%;
 }
 
 header,
@@ -78,26 +95,12 @@ pre {
   line-height: 1em;
 }
 
-summary {
-  font-weight: bold;
-}
-
-textarea {
-  height: 50vh;
-  width: 95%;
-}
-
 .class1 {
   border-left: 3px solid dodgerblue;
 }
 
 .class2 {
   border-left: 3px solid tomato;
-}
-
-.container {
-  margin: 10px auto;
-  text-align: center;
 }
 
 .date {
@@ -118,19 +121,9 @@ textarea {
   -ms-transform: rotate(180deg);
 }
 
-.oracle {
-  margin-left: 0.5em;
-}
-
-.selected {
-  background-color: #222;
-  color: #f2f2f2;
-  font-weight: bold;
-}
-
-.table {
-  background-color: #222;
-  color: #f2f2f2;
+.tab {
+  display: none;
+  text-align: center;
 }
 
 .terminal {
