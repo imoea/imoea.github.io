@@ -216,7 +216,7 @@
  "altered": [
   "A major detail is enhanced",
   [
-   "\nRandom event:\n",
+   "Random event:",
    "random_event"
   ],
   [
@@ -409,7 +409,7 @@
  ],
  "pacing": [
   [
-   "\nRandom event:\n",
+   "Random event:",
    "random_event"
   ],
   "Advance a thread",
@@ -417,7 +417,7 @@
   "An NPC takes action",
   "Foreshadow trouble",
   [
-   "\nReveal a new detail:\n",
+   "Detail:",
    "detail"
   ]
  ],
@@ -455,27 +455,27 @@
  ],
  "scene": [
   [
-   "\nDowntime:\n",
+   "Downtime:",
    "complication"
   ],
   [
-   "\nDowntime:\n",
+   "Downtime:",
    "complication"
   ],
   [
-   "\nMeanwhile...\n",
+   "Meanwhile...",
    "complication"
   ],
   [
-   "\nAction:\n",
+   "Action:",
    "complication"
   ],
   [
-   "\nAction:\n",
+   "Action:",
    "complication"
   ],
   [
-   "\nAction:\n",
+   "Action:",
    "complication"
   ]
  ],
@@ -523,7 +523,7 @@
  ],
  "twist": [
   [
-   "\nTwist:\n",
+   "Twist:",
    "complication"
   ],
   null,
@@ -531,7 +531,7 @@
   null,
   null,
   [
-   "\nInterrupt:\n",
+   "Interrupt:",
    "random_event"
   ]
  ],

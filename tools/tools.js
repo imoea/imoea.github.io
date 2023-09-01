@@ -2,7 +2,7 @@
 
 class Decks {
     constructor(json) {
-        this.data = json[0];
+        this.data = json;
         this.selection = {
             "standard": new StandardDeck(this.data, 0, 52),
             "jokers": new StandardDeck(this.data, 0, 54),
@@ -240,13 +240,14 @@ class Pool {
 
 class Oracle {
     constructor(json) {
-        this.data = json[0]
+        this.data = json;
         this.dice = {};
     }
 
     ask(table) {
-        document.getElementById("answer").innerHTML = this.roll_table(table).join(" ").trim()
-            .replace(/\n/g, "<br>").replace(/(faction|npc|thread|threat)/gi, "<b>$&</b>");
+        const text = this.roll_table(table).join(" ").replace(/ \n /g, "\n");
+        document.getElementById("answer").innerHTML = `<h4>${text.replace(/\n/g, "<br><br>")}</h4>`;
+        navigator.clipboard.writeText(text);
     }
 
     change_dice(table, x) {
@@ -303,6 +304,38 @@ class Oracle {
     }
 }
 
+// time ////////////////////////////////////////////////////////////////////////
+
+class Time {
+    constructor() {
+        this.t = 0;
+    }
+
+    reset() {
+        this.t = 0;
+        this.update();
+    }
+
+    tick(dt) {
+        this.t = Math.max(this.t + dt, 0);
+        this.update();
+    }
+
+    update() {
+        const s = this.t % 60;
+        const m = Math.floor(this.t / 60) % 60;
+        const h = Math.floor(this.t / 3600) % 24;
+        const d = Math.floor(this.t / 86400);
+
+        let text = `Day ${d}`;
+        text += `<h1>${(h > 12) ? h - 12 : ((h === 0) ? 12 : h)}:`;
+        text += `${m.toString().padStart(2, "0")}:${s.toString().padStart(2, "0")}`
+        text += ` ${(h > 11) ? "PM" : "AM"}</h1>`;
+
+        document.getElementById("time").innerHTML = text;
+    }
+}
+
 // tabs ////////////////////////////////////////////////////////////////////////
 
 function open_tab(event, group, id) {
@@ -314,14 +347,24 @@ function open_tab(event, group, id) {
 
 // variables ///////////////////////////////////////////////////////////////////
 
-let decks, oracle, pool;
+let decks, oracle, pool, time;
 
 Promise.all([fetch("/tools/assets/cards.json")
     .then(function (obj) { return obj.json(); })])
-    .then(function (json) { decks = new Decks(json); });
+    .then(function (json) { decks = new Decks(json[0]); });
 
 Promise.all([fetch("/tools/assets/oracle.json")
     .then(function (obj) { return obj.json(); })])
-    .then(function (json) { oracle = new Oracle(json); });
+    .then(function (json) { oracle = new Oracle(json[0]); });
 
 pool = new Pool();
+time = new Time();
+
+////////////////////////////////////////////////////////////////////////////////
+function save(obj) {
+    const data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
+    const ele = document.getElementById("save");
+    ele.setAttribute("href", data);
+    ele.setAttribute("download", "save.json");
+    ele.setAttribute("href", "");
+}

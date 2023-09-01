@@ -20,11 +20,14 @@
 
   <main>
     <p>
-      <button class="main_tab" onclick="open_tab(event, 'main', 'List')">List</button><button class="main_tab"
+      <button class="main_tab" onclick="open_tab(event, 'main', 'File')">File</button><button class="main_tab"
+        onclick="open_tab(event, 'main', 'List')">List</button><button class="main_tab"
         onclick="open_tab(event, 'main', 'Oracle')">Oracle</button><button class="main_tab"
         onclick="open_tab(event, 'main', 'Random')">Random</button><button class="main_tab"
-        onclick="open_tab(event, 'main', 'Time')">Time</button>
+        onclick="open_tab(event, 'main', 'Time');time.update()">Time</button>
     </p>
+
+    <div id="File" class="tab" name="main"></div>
 
     <div id="List" class="tab" name="main">
       <p>
@@ -131,7 +134,22 @@
       </div>
     </div>
 
-    <div id="Time" class="tab" name="main"></div>
+    <div id="Time" class="tab" name="main">
+      <p id="time"></p>
+      <p>
+        <button class="time" onclick="time.reset()">Reset</button>
+      </p>
+      <p>
+        <button class="time" onclick="time.tick(-86400)">-1d</button><button class="time"
+          onclick="time.tick(-21600)">-6h</button><button class="time" onclick="time.tick(-3600)">-1h</button><button
+          class="time" onclick="time.tick(-600)">-10m</button><button class="time"
+          onclick="time.tick(-60)">-1m</button><button class="time" onclick="time.tick(-10)">-10s</button>
+        <button class="time" onclick="time.tick(86400)">+1d</button><button class="time"
+          onclick="time.tick(21600)">+6h</button><button class="time" onclick="time.tick(3600)">+1h</button><button
+          class="time" onclick="time.tick(600)">+10m</button><button class="time"
+          onclick="time.tick(60)">+1m</button><button class="time" onclick="time.tick(10)">+10s</button>
+      </p>
+    </div>
   </main>
 </body>
 
