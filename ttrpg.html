@@ -6,7 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ttrpg | made of everything awesome</title>
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
-  <link rel="stylesheet" type="text/css" media="screen" href="/styles.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/styles/index.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="/styles/ttrpg.css" />
   <script type="text/javascript" src="/ttrpg/ttrpg.js"></script>
 </head>
 
@@ -24,25 +25,6 @@
         onclick="open_tab(event, 'main', 'Random')">Random</button><button class="main_tab"
         onclick="open_tab(event, 'main', 'Time');time.update()">Time</button>
     </p>
-
-    <div id="File" class="tab" name="main"></div>
-
-    <div id="List" class="tab" name="main">
-      <p>
-        <button class="list_tab" onclick="open_tab(event, 'list', 'Factions')">Factions</button><button class="list_tab"
-          onclick="open_tab(event, 'list', 'NPCs')">NPCs</button><button class="list_tab"
-          onclick="open_tab(event, 'list', 'Threads')">Threads</button><button class="list_tab"
-          onclick="open_tab(event, 'list', 'Threats')">Threats</button>
-      </p>
-
-      <div id="Factions" class="tab" name="list"></div>
-
-      <div id="NPCs" class="tab" name="list"></div>
-
-      <div id="Threads" class="tab" name="list"></div>
-
-      <div id="Threats" class="tab" name="list"></div>
-    </div>
 
     <div id="Oracle" class="tab" name="main">
       <p>

@@ -1,0 +1,59 @@
+.tab {
+    display: none;
+    text-align: center;
+}
+
+button {
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 0.3em;
+    color: #222;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ddd;
+}
+
+button.active {
+    background-color: #222;
+    color: #f2f2f2;
+    font-weight: bold;
+}
+
+button.chaos {
+    width: 30%;
+}
+
+button.main_tab {
+    width: 33.33%;
+}
+
+button.oracle {
+    width: 33.33%;
+}
+
+button.random_tab {
+    width: 20%;
+}
+
+button.success {
+    width: 18%;
+}
+
+button.time {
+    width: 15%;
+}
+
+img.flip {
+    transform: rotate(180deg);
+    -moz-transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    -o-transform: rotate(180deg);
+    -khtml-transform: rotate(180deg);
+    -ms-transform: rotate(180deg);
+}
+
+input[type=number] {
+    width: 45px;
+}
