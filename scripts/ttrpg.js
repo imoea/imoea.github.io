@@ -349,11 +349,11 @@ function open_tab(event, group, id) {
 
 let decks, oracle, pool, time;
 
-Promise.all([fetch("/ttrpg/assets/cards.json")
+Promise.all([fetch("/assets/ttrpg/cards.json")
     .then(function (obj) { return obj.json(); })])
     .then(function (json) { decks = new Decks(json[0]); });
 
-Promise.all([fetch("/ttrpg/assets/oracle.json")
+Promise.all([fetch("/assets/ttrpg/oracle.json")
     .then(function (obj) { return obj.json(); })])
     .then(function (json) { oracle = new Oracle(json[0]); });
 
