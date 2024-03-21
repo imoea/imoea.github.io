@@ -349,22 +349,13 @@ function open_tab(event, group, id) {
 
 let decks, oracle, pool, time;
 
-Promise.all([fetch("/tools/assets/cards.json")
+Promise.all([fetch("/ttrpg/assets/cards.json")
     .then(function (obj) { return obj.json(); })])
     .then(function (json) { decks = new Decks(json[0]); });
 
-Promise.all([fetch("/tools/assets/oracle.json")
+Promise.all([fetch("/ttrpg/assets/oracle.json")
     .then(function (obj) { return obj.json(); })])
     .then(function (json) { oracle = new Oracle(json[0]); });
 
 pool = new Pool();
 time = new Time();
-
-////////////////////////////////////////////////////////////////////////////////
-function save(obj) {
-    const data = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(obj));
-    const ele = document.getElementById("save");
-    ele.setAttribute("href", data);
-    ele.setAttribute("download", "save.json");
-    ele.setAttribute("href", "");
-}
