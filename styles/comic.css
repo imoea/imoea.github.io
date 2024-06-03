@@ -28,7 +28,7 @@ details>summary {
     padding: 0 0.5em;
 }
 
-header,
-main {
-    max-width: 700px;
+img {
+    height: 100%;
+    width: 100%;
 }
