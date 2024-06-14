@@ -29,8 +29,8 @@ class Comics {
         document.querySelectorAll("summary").forEach(summary => {
             summary.addEventListener('click', closeOpenedDetails);
         });
-        document.querySelectorAll("button").forEach(summary => {
-            summary.addEventListener('click', activateButton);
+        document.querySelectorAll("button").forEach(button => {
+            button.addEventListener('click', activateButton);
         });
     }
 }
