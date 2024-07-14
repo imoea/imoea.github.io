@@ -1,47 +1,70 @@
-// comics //////////////////////////////////////////////////////////////////////
-
 class Comics {
     constructor(json) {
+        // Initialise the comics page.
+
         this.data = json;
         this.imgs = {};
 
-        this.init();
-    }
-
-    init() {
         let html = "";
-        Object.keys(this.data).forEach(month => {
-            html += `<details><summary>${month}</summary><p>`;
+
+        // List all the months that have comics.
+        Object.entries(this.data).forEach(([month, dates]) => {
+
+            // Include the number of comics for that month.
+            html += `<details><summary>${month} (${dates.length.toString().padStart(2, " ")})</summary><p>`;
             html += `<div id="${month}"></div>`;
-            this.data[month].forEach(id => {
-                const label = id.substring(8);
-                html += `<button id="${id}" name="${month}" onclick="comics.select(id)">${label}</button>`;
+
+            // List all the days that have comics.
+            dates.forEach(date => {
+                const day = date.substring(8);
+                html += `<button id="${date}">${day}</button>`;
             })
+
             html += `</p></details>`;
         });
+
         document.getElementById("comic").innerHTML = html;
-    }
 
-    select(id) {
-        const ele = document.getElementById(id);
-        const eles = document.getElementsByName(ele.name);
-        eles.forEach(e => e.classList.remove("active"));
-        ele.classList.add("active");
-
-        if (!(id in this.imgs)) {
-            this.imgs[id] = new Image();
-            this.imgs[id].src = `/assets/comic/${id}.png`;
-        }
-        this.show(id);
-    }
-
-    show(id) {
-        const month = id.substring(0, 7);
-        document.getElementById(month).innerHTML = `<p><img src="${this.imgs[id].src}"></p>`;
+        // Attach functions to all clickables.
+        document.querySelectorAll("summary").forEach(summary => {
+            summary.addEventListener('click', closeOpenedDetails);
+        });
+        document.querySelectorAll("button").forEach(button => {
+            button.addEventListener('click', activateButton);
+        });
     }
 }
 
-// variables ///////////////////////////////////////////////////////////////////
+function activateButton() {
+
+    // Deactivate all other buttons except this one.
+    document.querySelectorAll("button").forEach(button => {
+        if (button != this) button.classList.remove("active");
+    });
+    this.classList.add("active");
+
+    // Retrieve the image from its source.
+    if (!(this.id in comics.imgs)) {
+        comics.imgs[this.id] = new Image();
+        comics.imgs[this.id].src = `/assets/comic/${this.id}.png`;
+    }
+
+    // Display the image.
+    const month = this.id.substring(0, 7);
+    document.getElementById(month).innerHTML = `<p><img src="${comics.imgs[this.id].src}"></p>`;
+}
+
+function closeOpenedDetails() {
+
+    // Hide all other details except this one.
+    document.querySelectorAll("summary").forEach(summary => {
+        let detail = summary.parentNode;
+        if (detail != this.parentNode) detail.removeAttribute("open");
+    });
+
+    // Remove the images too.
+    document.querySelectorAll("details > div").forEach(div => div.innerHTML = "");
+}
 
 let comics;
 
