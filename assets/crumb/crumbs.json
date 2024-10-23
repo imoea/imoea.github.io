@@ -1,0 +1,68 @@
+{
+ "feel": {
+  "hint": "more coming soon",
+  "txt": [
+   "Great job! You solved all the puzzles!"
+  ]
+ },
+ "change": {
+  "hint": "touch the pieces",
+  "img": "checkers.png"
+ },
+ "elementary": {
+  "hint": "- + + - - +",
+  "txt": [
+   "14, 11, 19, 20, 6, 25, 4"
+  ]
+ },
+ "telegraph": {
+  "hint": "snowball",
+  "txt": [
+   "5, 7, 19, 8, 18, 9, 6, 7, 17, 7"
+  ]
+ },
+ "static": {
+  "hint": "connect the dots",
+  "txt": [
+   "Quick_Observation2981",
+   "LoudTrade",
+   "Glamorous.Steel",
+   "BraveRoof",
+   "Dry.Minute698",
+   "Dead_Territory64",
+   "Magnificent.Dogs2892",
+   "Powerful.Quill",
+   "MelodicTitle",
+   "Quaint.Slave711",
+   "MysteriousSpy2008",
+   "Ancient_Earthquake",
+   "Adorable_Friction",
+   "Bumpy.Wax9592",
+   "WhiteGlove",
+   "Cool.Trouble",
+   "Magnificent_Knife00",
+   "Long.Front",
+   "WetName47",
+   "Obnoxious.Jail",
+   "Curly_Advice17",
+   "HelpfulSkirt74",
+   "Mammoth.Pet2392",
+   "Panicky_Leather",
+   "Skinny_Birds",
+   "Purring.Crook",
+   "MiniatureDog1135",
+   "Jealous.Worm38",
+   "Wet.Hall268",
+   "Adorable.Cry",
+   "Breeze.Pencil9322"
+  ]
+ },
+ "technicolor": {
+  "hint": "picking colours",
+  "img": "rgb.png"
+ },
+ "hello": {
+  "hint": "black nor white",
+  "img": "grey.png"
+ }
+}
