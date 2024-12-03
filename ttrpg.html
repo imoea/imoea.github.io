@@ -22,47 +22,48 @@
   </header>
 
   <main>
-    <p>
-      <button class="main_tab" onclick="open_tab(event, 'main', 'Oracle')">Oracle</button><button class="main_tab"
-        onclick="open_tab(event, 'main', 'Random')">Random</button><button class="main_tab"
-        onclick="open_tab(event, 'main', 'Time');time.update()">Time</button>
+    <p class="flex-h">
+      <button class="flex main_tab" onclick="open_tab(event, 'main', 'Oracle');">Oracle</button>
+      <button class="flex main_tab" onclick="open_tab(event, 'main', 'Random');">Random</button>
+      <button class="flex main_tab" onclick="open_tab(event, 'main', 'Time'); time.update();">Time</button>
     </p>
 
     <div id="Oracle" class="tab" name="main">
-      <p>
-        <button id="chaos_low" class="chaos" name="chaos" onclick="oracle.select(id)">Low chaos</button><button
-          id="chaos_normal" class="chaos active" name="chaos" onclick="oracle.select(id)">Normal</button><button
-          id="chaos_high" class="chaos" name="chaos" onclick="oracle.select(id)">High chaos</button>
-        <br>
-        <button id="d4" class="success" name="success" onclick="oracle.select(id)">d4</button><button id="d6"
-          class="success active" name="success" onclick="oracle.select(id)">d6</button><button id="d8" class="success"
-          name="success" onclick="oracle.select(id)">d8</button><button id="d10" class="success" name="success"
-          onclick="oracle.select(id)">d10</button><button id="d12" class="success" name="success"
-          onclick="oracle.select(id)">d12</button>
+      <p class="flex-h">
+        <button class="flex" id="chaos_low" name="chaos" onclick="oracle.select(id);">Low chaos</button>
+        <button class="flex active" id="chaos_normal" name="chaos" onclick="oracle.select(id);">Normal</button>
+        <button class="flex" id="chaos_high" name="chaos" onclick="oracle.select(id);">High chaos</button>
       </p>
-      <p>
-        <button id="set_the_scene" class="oracle" name="oracle" onclick="oracle.select(id)">Set the
-          scene</button><button id="pacing" class="oracle" name="oracle" onclick="oracle.select(id)">Pacing
-          move</button><button id="random_event" class="oracle" name="oracle"
-          onclick="oracle.select(id)">Random</button>
-        <br>
-        <button id="action" class="oracle" name="oracle" onclick="oracle.select(id)">Action</button><button
-          id="description" class="oracle" name="oracle" onclick="oracle.select(id)">Description</button><button
-          id="element" class="oracle" name="oracle" onclick="oracle.select(id)">Element</button>
-        <br>
-        <button id="how_much" class="oracle" name="oracle" onclick="oracle.select(id)">How
-          much?</button><button id="yes_no" class="oracle" name="oracle"
-          onclick="oracle.select(id)">Yes/No</button><button id="success" class="oracle" name="oracle"
-          onclick="oracle.select(id)">Success?</button>
+      <p class="flex-h">
+        <button class="flex" id="d4" name="success" onclick="oracle.select(id);">d4</button>
+        <button class="flex active" id="d6" name="success" onclick="oracle.select(id);">d6</button>
+        <button class="flex" id="d8" name="success" onclick="oracle.select(id);">d8</button>
+        <button class="flex" id="d10" name="success" onclick="oracle.select(id);">d10</button>
+        <button class="flex" id="d12" name="success" onclick="oracle.select(id);">d12</button>
       </p>
+      <div class="flex-h">
+        <button class="flex" id="set_the_scene" name="oracle" onclick="oracle.select(id);">Set the scene</button>
+        <button class="flex" id="pacing" name="oracle" onclick="oracle.select(id);">Pacing move</button>
+        <button class="flex" id="random_event" name="oracle" onclick="oracle.select(id);">Random</button>
+      </div>
+      <div class="flex-h">
+        <button class="flex" id="action" name="oracle" onclick="oracle.select(id);">Action</button>
+        <button class="flex" id="description" name="oracle" onclick="oracle.select(id);">Description</button>
+        <button class="flex" id="element" name="oracle" onclick="oracle.select(id);">Element</button>
+      </div>
+      <div class="flex-h">
+        <button class="flex" id="how_much" name="oracle" onclick="oracle.select(id);">How much?</button>
+        <button class="flex" id="yes_no" name="oracle" onclick="oracle.select(id);">Yes/No</button>
+        <button class="flex" id="success" name="oracle" onclick="oracle.select(id);">Success?</button>
+      </div>
       <p id="answer"></p>
     </div>
 
     <div id="Random" class="tab" name="main">
-      <p>
-        <button class="random_tab" onclick="open_tab(event, 'random', 'Standard')">Cards</button><button
-          class="random_tab" onclick="open_tab(event, 'random', 'Dice')">Dice</button><button class="random_tab"
-          onclick="open_tab(event, 'random', 'Tarot')">Tarot</button>
+      <p class="flex-h">
+        <button class="flex random_tab" onclick="open_tab(event, 'random', 'Standard');">Cards</button>
+        <button class="flex random_tab" onclick="open_tab(event, 'random', 'Dice');">Dice</button>
+        <button class="flex random_tab" onclick="open_tab(event, 'random', 'Tarot');">Tarot</button>
       </p>
 
       <div id="Dice" class="tab" name="random">
@@ -70,7 +71,7 @@
           Roll <input title="Number of dice" type="number" id="dice_n" min="1" value="1">
           d <input title="Number of sides; 0 = Fate die" type="number" id="dice_x" min="0" value="6">
           + <input title="Modifier" type="number" id="dice_m" value="0">
-          <button title="Roll" onclick="pool.roll()">🎲</button>
+          <button title="Roll" onclick="pool.roll();">🎲</button>
         </p>
         <p id="dice_history"></p>
         <p id="dice_result"></p>
@@ -78,7 +79,7 @@
 
       <div id="Standard" class="tab" name="random">
         <p>
-          <select title="Change deck" onchange="change_deck('standard', value)">
+          <select title="Change deck" onchange="change_deck('standard', value);">
             <option value="standard">Standard</option>
             <option value="jokers">+Jokers</option>
             <option value="clubs">Clubs</option>
@@ -86,18 +87,18 @@
             <option value="hearts">Hearts</option>
             <option value="spades">Spades</option>
           </select>
-          <button title="Shuffle" onclick="decks.selected.standard.shuffle()">🔀</button>
-          <button title="Previous" onclick="decks.selected.standard.prev()">⏮️</button>
-          <button title="Next" onclick="decks.selected.standard.next()">⏭️</button>
-          <button title="Copy to clipboard" onclick="decks.selected.standard.copy()">📋</button>
-          <button title="Draw" onclick="decks.selected.standard.draw()">▶️</button>
+          <button title="Shuffle" onclick="decks.selected.standard.shuffle();">🔀</button>
+          <button title="Previous" onclick="decks.selected.standard.prev();">⏮️</button>
+          <button title="Next" onclick="decks.selected.standard.next();">⏭️</button>
+          <button title="Copy to clipboard" onclick="decks.selected.standard.copy();">📋</button>
+          <button title="Draw" onclick="decks.selected.standard.draw();">▶️</button>
         </p>
         <p id="standard"></p>
       </div>
 
       <div id="Tarot" class="tab" name="random">
         <p>
-          <select title="Change deck" onchange="change_deck('tarot', value)">
+          <select title="Change deck" onchange="change_deck('tarot', value);">
             <option value="tarot">Tarot</option>
             <option value="major">Major</option>
             <option value="minor">Minor</option>
@@ -106,11 +107,11 @@
             <option value="swords">Swords</option>
             <option value="wands">Wands</option>
           </select>
-          <button title="Shuffle" onclick="decks.selected.tarot.shuffle()">🔀</button>
-          <button title="Previous" onclick="decks.selected.tarot.prev()">⏮️</button>
-          <button title="Next" onclick="decks.selected.tarot.next()">⏭️</button>
-          <button title="Rotate" onclick="decks.selected.tarot.rotate()">🔄</button>
-          <button title="Draw" onclick="decks.selected.tarot.draw()">▶️</button>
+          <button title="Shuffle" onclick="decks.selected.tarot.shuffle();">🔀</button>
+          <button title="Previous" onclick="decks.selected.tarot.prev();">⏮️</button>
+          <button title="Next" onclick="decks.selected.tarot.next();">⏭️</button>
+          <button title="Rotate" onclick="decks.selected.tarot.rotate();">🔄</button>
+          <button title="Draw" onclick="decks.selected.tarot.draw();">▶️</button>
         </p>
         <p id="tarot"></p>
       </div>
@@ -118,19 +119,25 @@
 
     <div id="Time" class="tab" name="main">
       <p id="time"></p>
-      <p>
-        <button class="time" onclick="time.reset()">Reset</button>
+      <p class="flex-h">
+        <button class="flex" onclick="time.reset();">Reset</button>
       </p>
-      <p>
-        <button class="time" onclick="time.tick(-86400)">-1d</button><button class="time"
-          onclick="time.tick(-21600)">-6h</button><button class="time" onclick="time.tick(-3600)">-1h</button><button
-          class="time" onclick="time.tick(-600)">-10m</button><button class="time"
-          onclick="time.tick(-60)">-1m</button><button class="time" onclick="time.tick(-10)">-10s</button>
-        <button class="time" onclick="time.tick(86400)">+1d</button><button class="time"
-          onclick="time.tick(21600)">+6h</button><button class="time" onclick="time.tick(3600)">+1h</button><button
-          class="time" onclick="time.tick(600)">+10m</button><button class="time"
-          onclick="time.tick(60)">+1m</button><button class="time" onclick="time.tick(10)">+10s</button>
-      </p>
+      <div class="flex-h">
+        <button class="flex" onclick="time.tick(-86400);">-1d</button>
+        <button class="flex" onclick="time.tick(-21600);">-6h</button>
+        <button class="flex" onclick="time.tick(-3600);">-1h</button>
+        <button class="flex" onclick="time.tick(-600);">-10m</button>
+        <button class="flex" onclick="time.tick(-60);">-1m</button>
+        <button class="flex" onclick="time.tick(-10);">-10s</button>
+      </div>
+      <div class="flex-h">
+        <button class="flex" onclick="time.tick(86400);">+1d</button>
+        <button class="flex" onclick="time.tick(21600);">+6h</button>
+        <button class="flex" onclick="time.tick(3600);">+1h</button>
+        <button class="flex" onclick="time.tick(600);">+10m</button>
+        <button class="flex" onclick="time.tick(60);">+1m</button>
+        <button class="flex" onclick="time.tick(10);">+10s</button>
+      </div>
     </div>
   </main>
 </body>

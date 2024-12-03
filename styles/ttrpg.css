@@ -1,8 +1,3 @@
-.tab {
-    display: none;
-    text-align: center;
-}
-
 button {
     background-color: #f2f2f2;
     border: 1px solid #f2f2f2;
@@ -21,28 +16,9 @@ button.active {
     font-weight: bold;
 }
 
-button.chaos {
-    width: 30%;
-}
-
-button.main_tab {
-    width: 33.33%;
-}
-
-button.oracle {
-    width: 33.33%;
-}
-
-button.random_tab {
-    width: 20%;
-}
-
-button.success {
-    width: 18%;
-}
-
-button.time {
-    width: 15%;
+div.tab {
+    display: none;
+    text-align: center;
 }
 
 img.flip {
@@ -56,4 +32,13 @@ img.flip {
 
 input[type=number] {
     width: 45px;
+}
+
+.flex {
+    flex: 1;
+}
+
+.flex-h {
+    display: flex;
+    flex-direction: row;
 }
