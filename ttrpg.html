@@ -8,17 +8,16 @@
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="stylesheet" type="text/css" media="screen" href="/styles/index.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="/styles/ttrpg.css" />
+  <script type="text/javascript" src="/scripts/index.js"></script>
   <script type="text/javascript" src="/scripts/ttrpg.js"></script>
 </head>
 
 <body>
   <header>
-    <ul>
-      <li style="float: left;"><a href="/">moea</a></li>
-      <li><a href="/comic.html">comic</a></li>
-      <li><a href="/#crumb">crumb</a></li>
-      <li><a href="/ttrpg.html">ttrpg</a></li>
-    </ul>
+    <a href="/">moea</a> &ensp;
+    <a href="/comic.html">comic</a> &ensp;
+    <a href="/#crumb">crumb</a> &ensp;
+    <a href="/ttrpg.html">ttrpg</a>
   </header>
 
   <main>
@@ -56,7 +55,7 @@
         <button class="flex" id="yes_no" name="oracle" onclick="oracle.select(id);">Yes/No</button>
         <button class="flex" id="success" name="oracle" onclick="oracle.select(id);">Success?</button>
       </div>
-      <p id="answer"></p>
+      <p class="center" id="answer"></p>
     </div>
 
     <div id="Random" class="tab" name="main">
@@ -67,18 +66,18 @@
       </p>
 
       <div id="Dice" class="tab" name="random">
-        <p>
+        <p class="center">
           Roll <input title="Number of dice" type="number" id="dice_n" min="1" value="1">
           d <input title="Number of sides; 0 = Fate die" type="number" id="dice_x" min="0" value="6">
           + <input title="Modifier" type="number" id="dice_m" value="0">
           <button title="Roll" onclick="pool.roll();">🎲</button>
         </p>
-        <p id="dice_history"></p>
-        <p id="dice_result"></p>
+        <p class="center" id="dice_history"></p>
+        <p class="center" id="dice_result"></p>
       </div>
 
       <div id="Standard" class="tab" name="random">
-        <p>
+        <p class="center">
           <select title="Change deck" onchange="change_deck('standard', value);">
             <option value="standard">Standard</option>
             <option value="jokers">+Jokers</option>
@@ -93,11 +92,11 @@
           <button title="Copy to clipboard" onclick="decks.selected.standard.copy();">📋</button>
           <button title="Draw" onclick="decks.selected.standard.draw();">▶️</button>
         </p>
-        <p id="standard"></p>
+        <p class="center" id="standard"></p>
       </div>
 
       <div id="Tarot" class="tab" name="random">
-        <p>
+        <p class="center">
           <select title="Change deck" onchange="change_deck('tarot', value);">
             <option value="tarot">Tarot</option>
             <option value="major">Major</option>
@@ -113,31 +112,31 @@
           <button title="Rotate" onclick="decks.selected.tarot.rotate();">🔄</button>
           <button title="Draw" onclick="decks.selected.tarot.draw();">▶️</button>
         </p>
-        <p id="tarot"></p>
+        <p class="center" id="tarot"></p>
       </div>
     </div>
 
     <div id="Time" class="tab" name="main">
-      <p id="time"></p>
+      <p class="center" id="time"></p>
       <p class="flex-h">
         <button class="flex" onclick="time.reset();">Reset</button>
       </p>
-      <div class="flex-h">
+      <p class="flex-h">
         <button class="flex" onclick="time.tick(-86400);">-1d</button>
         <button class="flex" onclick="time.tick(-21600);">-6h</button>
         <button class="flex" onclick="time.tick(-3600);">-1h</button>
         <button class="flex" onclick="time.tick(-600);">-10m</button>
         <button class="flex" onclick="time.tick(-60);">-1m</button>
         <button class="flex" onclick="time.tick(-10);">-10s</button>
-      </div>
-      <div class="flex-h">
+      </p>
+      <p class="flex-h">
         <button class="flex" onclick="time.tick(86400);">+1d</button>
         <button class="flex" onclick="time.tick(21600);">+6h</button>
         <button class="flex" onclick="time.tick(3600);">+1h</button>
         <button class="flex" onclick="time.tick(600);">+10m</button>
         <button class="flex" onclick="time.tick(60);">+1m</button>
         <button class="flex" onclick="time.tick(10);">+10s</button>
-      </div>
+      </p>
     </div>
   </main>
 </body>

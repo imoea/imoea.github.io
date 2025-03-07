@@ -49,22 +49,28 @@ body {
 
 header,
 main {
-  display: block;
+  display: flex;
+  font-size: 100%;
   margin: auto;
   max-width: 70ch;
   padding: 0 1em;
-  font-size: 100%;
   width: auto;
 }
 
-header li {
-  display: inline;
-  padding: 0 0.25em;
+main {
+  flex-direction: column;
+  gap: 1em;
 }
 
-header ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0.5em 0;
-  text-align: right;
+.center {
+  margin: auto;
+}
+
+.flex-h {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex {
+  flex: 1;
 }

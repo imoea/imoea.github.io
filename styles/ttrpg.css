@@ -1,9 +1,15 @@
+.tab {
+    display: none;
+    text-align: center;
+}
+
 button {
     background-color: #f2f2f2;
     border: 1px solid #f2f2f2;
     border-radius: 0.3em;
     color: #222;
     cursor: pointer;
+    padding: 0.5ch;
 }
 
 button:hover {
@@ -14,11 +20,6 @@ button.active {
     background-color: #222;
     color: #f2f2f2;
     font-weight: bold;
-}
-
-div.tab {
-    display: none;
-    text-align: center;
 }
 
 img.flip {
@@ -32,13 +33,4 @@ img.flip {
 
 input[type=number] {
     width: 45px;
-}
-
-.flex {
-    flex: 1;
-}
-
-.flex-h {
-    display: flex;
-    flex-direction: row;
 }
