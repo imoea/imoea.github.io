@@ -10,8 +10,9 @@ button:hover {
     background-color: #ddd;
 }
 
+button:active,
 button.active {
-    background-color: #222;
+    background-color: dodgerblue;
     color: #f2f2f2;
     font-weight: bold;
 }
