@@ -17,19 +17,20 @@
     <p class="center">
       <a href="/">moea</a> &ensp;
       <a href="/comic.html">comic</a> &ensp;
-      <a href="/#crumb">crumb</a> &ensp;
       <a href="/ttrpg.html">ttrpg</a>
     </p>
   </header>
 
   <main>
-    <p class="flex-h">
+    <div class="flex-h">
       <button class="flex main_tab" onclick="open_tab(event, 'main', 'Oracle');">Oracle</button>
       <button class="flex main_tab" onclick="open_tab(event, 'main', 'Random');">Random</button>
       <button class="flex main_tab" onclick="open_tab(event, 'main', 'Time'); time.update();">Time</button>
-    </p>
-
+    </div>
     <div id="Oracle" class="tab" name="main">
+      <p class="desc">
+        Use these prompts to inspire what happens next in your adventure.
+      </p>
       <p class="flex-h">
         <button class="flex" id="chaos_low" name="chaos" onclick="oracle.select(id);">Low chaos</button>
         <button class="flex active" id="chaos_normal" name="chaos" onclick="oracle.select(id);">Normal</button>
@@ -61,6 +62,9 @@
     </div>
 
     <div id="Random" class="tab" name="main">
+      <p class="desc">
+        Use these decks and dice rollers to randomise outcomes in your adventures.
+      </p>
       <p class="flex-h">
         <button class="flex random_tab" onclick="open_tab(event, 'random', 'Standard');">Cards</button>
         <button class="flex random_tab" onclick="open_tab(event, 'random', 'Dice');">Dice</button>
@@ -119,6 +123,10 @@
     </div>
 
     <div id="Time" class="tab" name="main">
+      <p class="desc">
+        Use this to keep track the passing of time in your adventure.
+      </p>
+      <br>
       <p class="center" id="time"></p>
       <p class="flex-h">
         <button class="flex" onclick="time.reset();">Reset</button>
