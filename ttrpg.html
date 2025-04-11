@@ -29,7 +29,7 @@
     </div>
     <div id="Oracle" class="tab" name="main">
       <p class="desc">
-        Use these prompts to inspire what happens next in your adventure.
+        Use these to inspire what happens next in your adventure.
       </p>
       <p class="flex-h">
         <button class="flex" id="chaos_low" name="chaos" onclick="oracle.select(id);">Low chaos</button>
@@ -63,11 +63,11 @@
 
     <div id="Random" class="tab" name="main">
       <p class="desc">
-        Use these decks and dice rollers to randomise outcomes in your adventures.
+        Use these to randomise the outcomes in your adventures.
       </p>
       <p class="flex-h">
-        <button class="flex random_tab" onclick="open_tab(event, 'random', 'Standard');">Cards</button>
         <button class="flex random_tab" onclick="open_tab(event, 'random', 'Dice');">Dice</button>
+        <button class="flex random_tab" onclick="open_tab(event, 'random', 'Standard');">Standard</button>
         <button class="flex random_tab" onclick="open_tab(event, 'random', 'Tarot');">Tarot</button>
       </p>
 
@@ -92,11 +92,13 @@
             <option value="hearts">Hearts</option>
             <option value="spades">Spades</option>
           </select>
-          <button title="Shuffle" onclick="decks.selected.standard.shuffle();">🔀</button>
-          <button title="Previous" onclick="decks.selected.standard.prev();">⏮️</button>
-          <button title="Next" onclick="decks.selected.standard.next();">⏭️</button>
-          <button title="Copy to clipboard" onclick="decks.selected.standard.copy();">📋</button>
-          <button title="Draw" onclick="decks.selected.standard.draw();">▶️</button>
+        </p>
+        <p class="center">
+          <button onclick="decks.selected.standard.shuffle();">🔀<br>Shuffle</button>
+          <button onclick="decks.selected.standard.copy();">📋<br>Copy</button>
+          <button onclick="decks.selected.standard.prev();">⏮️<br>Prev</button>
+          <button onclick="decks.selected.standard.next();">⏭️<br>Next</button>
+          <button onclick="decks.selected.standard.draw();">▶️<br>Draw</button>
         </p>
         <p class="center" id="standard"></p>
       </div>
@@ -112,11 +114,13 @@
             <option value="swords">Swords</option>
             <option value="wands">Wands</option>
           </select>
-          <button title="Shuffle" onclick="decks.selected.tarot.shuffle();">🔀</button>
-          <button title="Previous" onclick="decks.selected.tarot.prev();">⏮️</button>
-          <button title="Next" onclick="decks.selected.tarot.next();">⏭️</button>
-          <button title="Rotate" onclick="decks.selected.tarot.rotate();">🔄</button>
-          <button title="Draw" onclick="decks.selected.tarot.draw();">▶️</button>
+        </p>
+        <p class="center">
+          <button onclick="decks.selected.tarot.shuffle();">🔀<br>Shuffle</button>
+          <button onclick="decks.selected.tarot.rotate();">🔄<br>Rotate</button>
+          <button onclick="decks.selected.tarot.prev();">⏮️<br>Prev</button>
+          <button onclick="decks.selected.tarot.next();">⏭️<br>Next</button>
+          <button onclick="decks.selected.tarot.draw();">▶️<br>Draw</button>
         </p>
         <p class="center" id="tarot"></p>
       </div>
@@ -124,7 +128,7 @@
 
     <div id="Time" class="tab" name="main">
       <p class="desc">
-        Use this to keep track the passing of time in your adventure.
+        Use this to track the passing of time in your adventure.
       </p>
       <br>
       <p class="center" id="time"></p>

@@ -22,7 +22,11 @@ button:hover {
     background-color: #ddd;
 }
 
-button:active,
+button:active {
+    background-color: dodgerblue;
+    color: #f2f2f2;
+}
+
 button.active {
     background-color: dodgerblue;
     color: #f2f2f2;
