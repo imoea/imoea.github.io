@@ -11,7 +11,9 @@ class Crumbs {
     document.getElementById("crumbs").innerHTML = html;
 
     document.querySelector("#code")?.addEventListener('keypress', e => {
-      if (e.keyCode == 13) evaluate(e.currentTarget.value);
+      if (e.keyCode == 13) {
+        evaluate(e.currentTarget.value);
+      }
     });
   }
 }

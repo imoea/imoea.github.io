@@ -28,7 +28,7 @@ class Decks {
 class StandardDeck {
   constructor(data, start, end) {
     this.deck = data.standard.cards;
-    this.arr = cut_deck(start, end);  // array of indices
+    this.arr = cutDeck(start, end);  // array of indices
     this.drawn = -1;
     this.pos = 0;
 
@@ -71,10 +71,10 @@ class StandardDeck {
   }
 
   shuffle() {
-    shuffle_arr(this.arr);
+    shuffleArr(this.arr);
     this.drawn = -1;
     this.pos = 0;
-    document.getElementById("standard").innerHTML = "";
+    removeAllChildren(document.getElementById("standard"));
   }
 }
 
@@ -83,8 +83,8 @@ class TarotDeck {
     this.data = data
     this.deck = data.tarot.cards;
     this.meanings = data.tarot.meanings;
-    this.arr = cut_deck(start, end);  // array of indices
-    this.flip = arrange_deck(end - start);  // array of orientations
+    this.arr = cutDeck(start, end);  // array of indices
+    this.flip = arrangeDeck(end - start);  // array of orientations
     this.drawn = -1;
     this.pos = 0;
 
@@ -134,15 +134,15 @@ class TarotDeck {
   }
 
   shuffle() {
-    shuffle_arr(this.arr);
-    flip_arr(this.flip);
+    shuffleArr(this.arr);
+    flipArr(this.flip);
     this.drawn = -1;
     this.pos = 0;
-    document.getElementById("tarot").innerHTML = "";
+    removeAllChildren(document.getElementById("tarot"));
   }
 }
 
-function arrange_deck(length) {
+function arrangeDeck(length) {
   let arr = new Array();
   for (let i = 0; i < length; i++) {
     arr.push(0);
@@ -150,16 +150,16 @@ function arrange_deck(length) {
   return arr;
 }
 
-function change_deck(type, value) {
+function changeDeck(type, value) {
   decks.selected[type] = decks.selection[value];
   if (decks.selected[type].drawn !== -1) {
     decks.selected[type].show();
   } else {
-    document.getElementById(type).innerHTML = "";
+    removeAllChildren(document.getElementById(type));
   }
 }
 
-function cut_deck(start, end) {
+function cutDeck(start, end) {
   let arr = new Array();
   for (let i = start; i < end; i++) {
     arr.push(i);
@@ -167,13 +167,19 @@ function cut_deck(start, end) {
   return arr;
 }
 
-function flip_arr(arr) {
+function flipArr(arr) {
   for (let i = 0; i < arr.length; i++) {
     arr[i] = Math.floor(Math.random() * 2);
   }
 }
 
-function shuffle_arr(arr) {
+function removeAllChildren(e) {
+  while (e.firstChild) {
+    e.removeChild(e.firstChild);
+  }
+}
+
+function shuffleArr(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [arr[i], arr[j]] = [arr[j], arr[i]];
@@ -245,27 +251,27 @@ class Oracle {
   }
 
   ask(table) {
-    const text = this.roll_table(table).join(" ").replace(/ \n /g, "\n");
+    const text = this.rollTable(table).join(" ").replace(/ \n /g, "\n");
     document.getElementById("answer").innerHTML = `<h4>${text.replace(/\n/g, "<br><br>")}</h4>`;
     navigator.clipboard.writeText(text);
   }
 
-  change_dice(table, x) {
+  changeDice(table, x) {
     this.dice[table] = x;
   }
 
-  roll_dice(x) {
+  rollDice(x) {
     return Math.floor(Math.random() * x);
   }
 
-  roll_table(table) {
+  rollTable(table) {
     const x = (table in this.dice) ? this.dice[table] : this.data[table].length;
-    let result = Math.min(this.roll_dice(x), this.data[table].length - 1);
+    let result = Math.min(this.rollDice(x), this.data[table].length - 1);
     if (["how_much", "scene", "set_the_scene", "yes_no"].includes(table)) {
       if (document.getElementById("chaos_low").classList.contains("active")) {
-        result = Math.min(result, this.roll_dice(x));
+        result = Math.min(result, this.rollDice(x));
       } else if (document.getElementById("chaos_high").classList.contains("active")) {
-        result = Math.max(result, this.roll_dice(x));
+        result = Math.max(result, this.rollDice(x));
       }
     }
     const results = this.data[table][result];
@@ -273,7 +279,7 @@ class Oracle {
     if (results && typeof (results) === "object") {
       results.forEach(result => {
         if (result in this.data) {
-          answer = answer.concat(this.roll_table(result));
+          answer = answer.concat(this.rollTable(result));
         } else if (result) {
           answer.push(result);
         }
@@ -295,7 +301,7 @@ class Oracle {
     }
 
     if (id.startsWith("d")) {
-      this.change_dice(ele.name, Number(id.substring(1)));
+      this.changeDice(ele.name, Number(id.substring(1)));
     }
 
     if (id in this.data) {
@@ -338,7 +344,7 @@ class Time {
 
 // tabs ////////////////////////////////////////////////////////////////////////
 
-function open_tab(event, group, id) {
+function openTab(event, group, id) {
   document.getElementsByName(group).forEach(e => { e.style.display = "none"; });
   document.querySelectorAll(`button.${group}_tab`).forEach(e => { e.classList.remove("active"); });
   document.getElementById(id).style.display = "block";

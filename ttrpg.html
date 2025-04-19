@@ -8,7 +8,7 @@
   <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
   <link rel="stylesheet" type="text/css" media="screen" href="/styles/index.css" />
   <link rel="stylesheet" type="text/css" media="screen" href="/styles/ttrpg.css" />
-  <script type="text/javascript" src="/scripts/ttrpg.js"></script>
+  <script type="text/javascript" src="/scripts/ttrpg.js" defer></script>
 </head>
 
 <body>
@@ -22,9 +22,9 @@
 
   <main>
     <div class="flex-h">
-      <button class="flex main_tab" onclick="open_tab(event, 'main', 'Oracle');">Oracle</button>
-      <button class="flex main_tab" onclick="open_tab(event, 'main', 'Random');">Random</button>
-      <button class="flex main_tab" onclick="open_tab(event, 'main', 'Time'); time.update();">Time</button>
+      <button class="flex main_tab" onclick="openTab(event, 'main', 'Oracle');">Oracle</button>
+      <button class="flex main_tab" onclick="openTab(event, 'main', 'Random');">Random</button>
+      <button class="flex main_tab" onclick="openTab(event, 'main', 'Time'); time.update();">Time</button>
     </div>
     <div id="Oracle" class="tab" name="main">
       <p class="desc">
@@ -65,9 +65,9 @@
         Use these to randomise the outcomes in your adventures.
       </p>
       <p class="flex-h">
-        <button class="flex random_tab" onclick="open_tab(event, 'random', 'Dice');">Dice</button>
-        <button class="flex random_tab" onclick="open_tab(event, 'random', 'Standard');">Standard</button>
-        <button class="flex random_tab" onclick="open_tab(event, 'random', 'Tarot');">Tarot</button>
+        <button class="flex random_tab" onclick="openTab(event, 'random', 'Dice');">Dice</button>
+        <button class="flex random_tab" onclick="openTab(event, 'random', 'Standard');">Standard</button>
+        <button class="flex random_tab" onclick="openTab(event, 'random', 'Tarot');">Tarot</button>
       </p>
 
       <div id="Dice" class="tab" name="random">
@@ -85,7 +85,7 @@
 
       <div id="Standard" class="tab" name="random">
         <p class="center">
-          <select title="Change deck" onchange="change_deck('standard', value);">
+          <select title="Change deck" onchange="changeDeck('standard', value);">
             <option value="standard">Standard</option>
             <option value="jokers">+Jokers</option>
             <option value="clubs">Clubs</option>
@@ -106,7 +106,7 @@
 
       <div id="Tarot" class="tab" name="random">
         <p class="center">
-          <select title="Change deck" onchange="change_deck('tarot', value);">
+          <select title="Change deck" onchange="changeDeck('tarot', value);">
             <option value="tarot">Tarot</option>
             <option value="major">Major</option>
             <option value="minor">Minor</option>

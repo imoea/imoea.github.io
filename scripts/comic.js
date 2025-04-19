@@ -37,9 +37,9 @@ class Comics {
 
 function activateButton() {
 
-  // Deactivate all other buttons except this one.
+  // Deactivate all buttons except this one.
   document.querySelectorAll("button").forEach(button => {
-    if (button != this) button.classList.remove("active");
+    button.classList.remove("active");
   });
   this.classList.add("active");
 
@@ -59,11 +59,18 @@ function closeOpenedDetails() {
   // Hide all other details except this one.
   document.querySelectorAll("summary").forEach(summary => {
     let detail = summary.parentNode;
-    if (detail != this.parentNode) detail.removeAttribute("open");
+    if (detail != this.parentNode) {
+      detail.removeAttribute("open");
+    }
   });
 
   // Remove the images too.
-  document.querySelectorAll("details > div").forEach(div => div.innerHTML = "");
+  document.querySelectorAll("details > div").forEach(div => {
+    while (div.firstChild) {
+      div.removeChild(div.firstChild);
+    }
+  });
+
 }
 
 let comics;
