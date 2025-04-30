@@ -1,11 +1,7 @@
 # imoea.github.io
 
-To install a server
-```sh
-npm install -g http-server
-```
+Visit at https://imoea.github.io/.
 
-To run a server at http://127.0.0.1:8080
-```sh
-http-server
-```
+## To-do
+
+- [ ] Site generator
