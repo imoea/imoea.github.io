@@ -57,7 +57,7 @@ article .wave {
 
 article .wave span {
   display: inline-block;
-  animation: wave-text 1s ease-in-out infinite;
+  animation: wave 1s ease-in-out infinite;
 }
 
 body {
